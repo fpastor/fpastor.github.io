@@ -1,0 +1,42 @@
+---
+const EXPERIENCE = [
+  {
+    date: "January 2017 - September 2022",
+    title: "Design Lead and Digital Marketing Manager at SISTEL",
+    description:
+      "Managed social media, executed inbound marketing campaigns (landing pages, ads, email marketing), and maintained the website. Coordinated content creation and continuously optimized the digital presence.",
+  },
+  {
+    date: "March 2015 - January 2022",
+    title: "Senior Graphic Designer at SISTEL",
+    description:
+      "Designed and produced marketing materials, including brochures, catalogs, datasheets, events, and posters. Managed the corporate image and branding.",
+  },
+
+  {
+    date: "February 2001 - March 2015",
+    title: "Web and Graphics Designer at SISTEL",
+    description:
+      "Design and layout of web applications. Corporate image design, brochures, catalogs, datasheets, events, and posters. Recording and editing of corporate videos",
+  },
+  {
+    date: "July - September 2000",
+    title:
+      "Audio-Visual Attractions Maintenance Technician at Terra Mítica Park",
+    description:
+      "Maintained and repaired audio-visual equipment, including projectors, sound systems, and lighting. Ensured the proper functioning of attractions and shows.",
+  },
+];
+
+import ExperienceItem from "../components/ExperienceItem.astro";
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import TitleSection from "../components/TitleSection.astro";
+import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+/* Icons */
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import DiscordIcon from "../components/icons/Discord.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import BriefcaseIcon from "../components/icons/Briefcase.astro";
+import CodeIcon from "../components/icons/Code.astro";
+---
+
+<Layout
+  title="Portfolio de Fernando Pastor - Diseño, Desarrollo y Progración de Aplicaciones Multiplataforma"
+  description="Lalala"
+>
+  <main class="px-6">
+    <SectionContainer class="pt-56 pb-20">
+      <h1
+        class="flex font-extrabold text-4xl lg:text-5xl flex-row gap-x-4 pb-5"
+      >
+        Hi there! I'm Fer!
+        <a
+          href="https://www.linkedin.com/in/fernando-pastor/"
+          target="_blanc"
+          rel="noopener"
+          class="flex items-center hover:scale-105 transition font-normal"
+        >
+          <Badge>Currently in Intensive Learning</Badge>
+        </a>
+      </h1>
+      <h2 class="text-xl">
+        My name is Fernando Pastor, and I'm a seasoned professional with over 20
+        years of experience in <span
+          class="dark:text-yellow-200 dark:font-bold"
+        >
+          graphic design, web development, and digital marketing
+        </span>, specializing in marketing strategies.
+      </h2>
+      <nav class="flex flex-wrap gap-x-2 gap-y-4 mt-6 text-sm font-light">
+        <SocialPill href="https://www.linkedin.com/in/fernando-pastor/">
+          <LinkedInIcon class="size-4" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://discordapp.com/users/303308172066553876">
+          <DiscordIcon class="size-4" />
+          Discord
+        </SocialPill>
+        <SocialPill href="mailto:fer@fernandopastor.es">
+          <MailIcon class="size-4" />
+          fer@fernandopastor.es
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experience" class="pt-20 -mt-20">
+      <TitleSection>
+        <BriefcaseIcon class="size-8" />
+        Experience
+      </TitleSection>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="projects" class="pt-20 -mt-20 mb-20">
+      <TitleSection>
+        <CodeIcon class="size-8" />
+        Proyectos
+      </TitleSection>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>
