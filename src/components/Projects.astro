@@ -1,9 +1,9 @@
 ---
+import CSharp from "./icons/CSharp.astro";
 import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
-import LinkButton from "./LinkButton.astro";
 import Microsoft from "./icons/Microsoft.astro";
-import CSharp from "./icons/CSharp.astro";
+import LinkButton from "./LinkButton.astro";
 
 const TAGS = {
   WPF: {
@@ -31,48 +31,94 @@ const PROJECTS = [
 ];
 ---
 
-<div class="flex flex-col gap-y-16">
+<div class="projects">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
-      <article>
-        <div>
-          <div>
-            <img alt="GameCollector screenshot" loading="lazy" src={image} />
-          </div>
-        </div>
+      <article class="project-item">
+        <figure class="project-media">
+          <img alt="GameCollector screenshot" loading="lazy" src={image} />
+        </figure>
 
-        <div>
+        <div class="project-body">
           <h3>{title}</h3>
-          <div>
-            <ul>
-              {tags.map((tag) => (
-                <li>
-                  <span>
-                    <tag.icon class="size-4" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
+          <ul class="project-tags">
+            {tags.map((tag) => (
+              <li class="tag">
+                <span>
+                  <tag.icon width="var(--icon-sm)" height="var(--icon-sm)" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
 
-            <div>{description}</div>
-            <footer>
-              {github && (
-                <LinkButton href={github}>
-                  <GitHub />
-                  Code
-                </LinkButton>
-              )}
-              {link && (
-                <LinkButton href={link}>
-                  <Link />
-                  Preview
-                </LinkButton>
-              )}
-            </footer>
-          </div>
+          <p class="project-desc">{description}</p>
+          <footer class="project-meta">
+            {github && (
+              <LinkButton href={github}>
+                <GitHub width="var(--icon-sm)" height="var(--icon-sm)" />
+                Code
+              </LinkButton>
+            )}
+            {link && (
+              <LinkButton href={link}>
+                <Link width="var(--icon-sm)" height="var(--icon-sm)" />
+                Preview
+              </LinkButton>
+            )}
+          </footer>
         </div>
       </article>
     ))
   }
 </div>
+
+<style>
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .project-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+  .project-media img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.06);
+  }
+  .project-body h3 {
+    margin: 0 0 0.5rem 0;
+  }
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem 0;
+  }
+  .tag span {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    border-radius: 9999px;
+    background: rgba(2, 6, 23, 0.04);
+  }
+  .project-desc {
+    margin: 0 0 1rem 0;
+  }
+  .project-meta {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .project-item {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,18 +1,18 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import TitleSection from "../components/TitleSection.astro";
 import Badge from "../components/Badge.astro";
-import SocialPill from "../components/SocialPill.astro";
 import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
-import "../styles/global.css";
+import SectionContainer from "../components/SectionContainer.astro";
+import SocialPill from "../components/SocialPill.astro";
+import TitleSection from "../components/TitleSection.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.scss";
 /* Icons */
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import DiscordIcon from "../components/icons/Discord.astro";
-import MailIcon from "../components/icons/Mail.astro";
 import BriefcaseIcon from "../components/icons/Briefcase.astro";
 import CodeIcon from "../components/icons/Code.astro";
+import DiscordIcon from "../components/icons/Discord.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import MailIcon from "../components/icons/Mail.astro";
 ---
 
 <Layout
@@ -39,15 +39,15 @@ import CodeIcon from "../components/icons/Code.astro";
       </h2>
       <nav>
         <SocialPill href="https://www.linkedin.com/in/fernando-pastor/">
-          <LinkedInIcon class="size-4" />
+          <LinkedInIcon width="var(--icon-sm)" height="var(--icon-sm)" />
           LinkedIn
         </SocialPill>
         <SocialPill href="https://discordapp.com/users/303308172066553876">
-          <DiscordIcon class="size-4" />
+          <DiscordIcon width="var(--icon-sm)" height="var(--icon-sm)" />
           Discord
         </SocialPill>
         <SocialPill href="mailto:fer@fernandopastor.es">
-          <MailIcon />
+          <MailIcon width="var(--icon-sm)" height="var(--icon-sm)" />
           fer@fernandopastor.es
         </SocialPill>
       </nav>
@@ -70,3 +70,18 @@ import CodeIcon from "../components/icons/Code.astro";
     </SectionContainer>
   </main>
 </Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    max-width: 56rem;
+  }
+  main nav {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+</style>

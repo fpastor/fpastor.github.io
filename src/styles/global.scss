@@ -1,0 +1,326 @@
+@import "./variables.css";
+
+// SCSS helpers
+$bp-desktop: 1024px;
+$bp-tablet: 900px;
+
+:root {
+  /* compatibility aliases to match older variable names used across components */
+  --max-width: var(--max-content-width);
+  --radius: var(--radius-sm);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-family: var(--ui-sans);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  font-feature-settings: "liga" 1;
+}
+
+/* Utility container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (min-width: $bp-desktop) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: var(--max-content-width);
+  }
+}
+
+/* Headings & type scale */
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2.25rem;
+  line-height: 1.05;
+
+  @media (min-width: $bp-desktop) {
+    font-size: 3rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+/* Links and buttons */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  --card-bg: #0d1016;
+  --card-text: #e6eef6;
+  --card-border: rgb(255 255 255 / 3%);
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+/* Header / nav */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+header nav {
+  backdrop-filter: blur(6px);
+  background: var(--glass);
+  box-shadow: 0 4px 10px rgba(2, 6, 23, 0.06);
+  border-radius: var(--radius-full);
+  border: var(--border-width) var(--border-style) var(--border-color);
+  margin: 0.6rem 0;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (min-width: $bp-desktop) {
+    padding: 0.6rem 1.25rem;
+    gap: 1.25rem;
+  }
+}
+
+.dark header nav {
+  background: var(--glass-dark);
+}
+
+/* Main layout pieces */
+main {
+  padding: 2rem 0;
+}
+footer {
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Card pattern */
+.card {
+  background: linear-gradient(180deg, #fff, #f8fafc);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
+}
+
+/* Projects, lists, experience */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+.grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Code and preformatted */
+pre,
+code {
+  font-family: var(--mono);
+  background: #0f172a;
+  color: #e6eef6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+}
+pre {
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* Images and avatars */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Small helpers */
+.muted {
+  color: var(--muted);
+}
+.caps {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Spacing sections */
+.section {
+  padding: 4rem 0;
+}
+.section.sm {
+  padding: 2rem 0;
+}
+
+.pattern-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--pattern-bg-color);
+  background-image: radial-gradient(var(--pattern-dot) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  pointer-events: none;
+}
+
+.dark .pattern-bg {
+  --pattern-bg-color: #000;
+  --pattern-dot: rgba(255, 255, 255, 0.18);
+  background-color: var(--pattern-bg-color);
+  background-image: radial-gradient(var(--pattern-dot) 1px, #00091d 1px);
+}
+
+/* Responsive tweaks (fixed invalid query from previous file) */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  .grid.cols-2 {
+    grid-template-columns: 1fr;
+  }
+  header nav {
+    padding: 0.6rem;
+  }
+}
+
+.dark body {
+  background: var(--bg);
+  color: var(--text);
+}
+.dark .card {
+  background: linear-gradient(180deg, #071024, #081229);
+}
+
+/* Tiny form controls */
+input,
+textarea,
+select {
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid rgba(2, 6, 23, 0.06);
+  border-radius: 8px;
+}
+textarea {
+  min-height: 120px;
+}
+
+:focus {
+  outline: 3px solid rgba(37, 99, 235, 0.15);
+  outline-offset: 2px;
+}
+
+/* Utilities */
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.small {
+  font-size: 0.875rem;
+}
+
+.site-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.social-pill {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.35rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(2, 6, 23, 0.04);
+}
+
+/* Desktop specific tweaks */
+@media (min-width: $bp-desktop) {
+  .grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  main {
+    padding: 3rem 0;
+  }
+}
+
+/* End of global base */

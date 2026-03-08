@@ -1,3 +1,21 @@
-<a {...Astro.props} target="_blank" rel="noopener noreferer">
+<a
+  {...Astro.props}
+  target="_blank"
+  rel="noopener noreferer"
+  class="social-pill"
+>
   <slot />
 </a>
+
+<style>
+  .social-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 9999px;
+    background: rgba(2, 6, 23, 0.04);
+    text-decoration: none;
+    color: inherit;
+  }
+</style>

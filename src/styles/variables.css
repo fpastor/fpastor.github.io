@@ -1,0 +1,124 @@
+/* Variables: reorganized and semantic-first
+   - New semantic variable names are provided (prefixed with --color-, --font-, --radius-, etc.)
+   - Compatibility aliases keep older names (e.g. --bg, --paper) working.
+*/
+
+:root {
+  /* -----------------------
+     Color palette (semantic)
+     ----------------------- */
+  --color-bg: #fff;
+  --color-surface: #f8fafc; /* paper */
+  --color-text: #0f172a;
+  --color-muted: #6b7280;
+  --color-primary: #0ea5a4;
+  --color-accent: #2563eb;
+  --color-accent-light-rgb: 59, 130, 246; /* use with rgb()/var() when needed */
+  --color-accent-gradient: linear-gradient(
+    90deg,
+    rgb(37 99 235 / 8%),
+    rgb(37 99 235 / 2%)
+  );
+  --ui-glass: rgb(255 255 255 / 60%);
+  --ui-glass-dark: rgb(17 24 39 / 75%);
+
+  /* -----------------------
+     Typography / fonts
+     ----------------------- */
+  --font-sans:
+    "Onest", system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue",
+    arial;
+  --font-mono:
+    ui-monospace, sfmono-regular, menlo, monaco, "Roboto Mono", monospace;
+  --icon-size-sm: 16px;
+
+  /* -----------------------
+     Radii / sizing
+     ----------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --max-content-width: 1100px;
+
+  /* -----------------------
+     Borders / misc
+     ----------------------- */
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color-default: #000;
+
+  /* -----------------------
+     Icon tokens
+     ----------------------- */
+  --color-icon-light: #f59e0b; /* amber-500 */
+  --color-icon-dark: #fff;
+  --color-icon-system: var(--color-muted);
+
+  /* -----------------------
+     Component tokens (cards, buttons)
+     ----------------------- */
+  --component-card-bg: #23262d;
+  --component-card-text: #fff;
+  --component-card-border: rgb(255 255 255 / 8%);
+  --component-card-opacity: 0.9;
+
+  /* -----------------------
+     Pattern / background dots
+     ----------------------- */
+  --pattern-bg-color: var(--color-surface);
+  --pattern-dot: rgb(2 6 23 / 12%);
+}
+
+/* Compatibility aliases (keep existing variable names working) */
+:root {
+  --bg: var(--color-bg);
+  --paper: var(--color-surface);
+  --text: var(--color-text);
+  --muted: var(--color-muted);
+  --primary: var(--color-primary);
+  --accent: var(--color-accent);
+  --accent-light: var(--color-accent-light-rgb);
+  --accent-gradient: var(--color-accent-gradient);
+  --glass: var(--ui-glass);
+  --glass-dark: var(--ui-glass-dark);
+  --mono: var(--font-mono);
+  --ui-sans: var(--font-sans);
+  --icon-sm: var(--icon-size-sm);
+  --border-color: var(--border-color-default);
+  --icon-light: var(--color-icon-light);
+  --icon-dark: var(--color-icon-dark);
+  --icon-system: var(--color-icon-system);
+  --card-bg: var(--component-card-bg);
+  --card-text: var(--component-card-text);
+  --card-border: var(--component-card-border);
+  --card-opacity: var(--component-card-opacity);
+  --pattern-bg-color: var(--pattern-bg-color);
+  --pattern-dot: var(--pattern-dot);
+}
+
+/* System preference: dark scheme overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b1220;
+    --color-surface: #071024;
+    --color-text: #e6eef6;
+    --color-muted: #9ca3af;
+  }
+}
+
+/* Explicit dark class overrides (applied to <html>.dark) */
+.dark {
+  --color-bg: #0b1220;
+  --color-surface: #071024;
+  --color-text: #e6eef6;
+  --color-muted: #9ca3af;
+
+  /* pattern and component overrides for dark mode */
+  --pattern-bg-color: #000;
+  --pattern-dot: rgb(255 255 255 / 18%);
+  --component-card-bg: #0d1016;
+  --component-card-text: #e6eef6;
+  --component-card-border: rgb(255 255 255 / 3%);
+}
