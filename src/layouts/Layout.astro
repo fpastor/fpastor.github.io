@@ -45,15 +45,7 @@ const { title, description } = Astro.props;
       }
     </script>
   </head>
-  <body
-    class="text-black bg-white
-    bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]
-    bg-size-[16px_16px]
-    dark:text-white dark:bg-black
-    dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)]
-    dark:bg-size-[20px_20px]
-    bg-fixed"
-  >
+  <body>
     <Header />
     <slot />
     <Footer />
@@ -71,7 +63,6 @@ const { title, description } = Astro.props;
     body {
       display: flex;
       flex-direction: column;
-      /* justify-content: center; */
       min-height: 100vh;
     }
 

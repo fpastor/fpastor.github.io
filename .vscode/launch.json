@@ -2,10 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
+      "name": "Astro Dev Server",
+      "type": "chrome",
       "request": "launch",
-      "type": "node-terminal"
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "astro-dev"
     }
   ]
 }

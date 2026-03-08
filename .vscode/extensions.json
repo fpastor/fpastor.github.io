@@ -2,8 +2,10 @@
   "recommendations": [
     "astro-build.astro-vscode",
     "esbenp.prettier-vscode",
-    "bradlc.vscode-tailwindcss",
-    "csstools.postcss"
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+    "christian-kohler.path-intellisense",
+    "stylelint.vscode-stylelint"
   ],
   "unwantedRecommendations": []
 }

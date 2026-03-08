@@ -1,27 +1,24 @@
-@import "tailwindcss";
-
-@variant dark (.dark &);
-
 /* Estilos del nav */
 header nav {
-  background-color: rgb(255 255 255 / 0.5);
+  background-color: rgb(255 255 255 / 50%);
   box-shadow:
-    0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
   animation: nav-shadow 1s linear forwards;
 }
 
 .dark header nav {
-  background-color: rgb(31 41 55 / 0.9);
+  background-color: rgb(31 41 55 / 90%);
 }
 
 /* Animación pura CSS */
 @keyframes nav-shadow {
   0% {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgb(255 255 255 / 0%);
   }
+
   100% {
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255 255 255 / 50%);
+    box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
   }
 }
