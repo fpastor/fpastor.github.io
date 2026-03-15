@@ -30,7 +30,37 @@
     arial;
   --font-mono:
     ui-monospace, sfmono-regular, menlo, monaco, "Roboto Mono", monospace;
+
+  /* font sizes */
+  --font-size-xxs: 0.625rem;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  /* font weights */
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 800;
+
+  /* icon sizes */
   --icon-size-sm: 16px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
+  --icon-size-xl: 48px;
+
+  /* icon colors */
+  --icon-stroke-color: var(--color-text);
+  --icon-fill-color: transparent;
 
   /* -----------------------
      Radii / sizing
@@ -48,10 +78,20 @@
   --border-width: 1px;
   --border-style: solid;
   --border-color-default: #000;
+  --space-xs: 0.125rem;
+  --space-sm: 0.25rem;
+  --space-md: 0.5rem;
+  --space-lg: 1rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
 
   /* -----------------------
      Icon tokens
      ----------------------- */
+
   --color-icon-light: #f59e0b; /* amber-500 */
   --color-icon-dark: #fff;
   --color-icon-system: var(--color-muted);
@@ -69,6 +109,25 @@
      ----------------------- */
   --pattern-bg-color: var(--color-surface);
   --pattern-dot: rgb(2 6 23 / 12%);
+}
+
+:root {
+  --toggle-border-color: orange;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --toggle-border-color: lime;
+  }
+}
+
+/* explicit user choice overrides */
+[data-theme="dark"] {
+  --toggle-border-color: lime;
+}
+
+[data-theme="light"] {
+  --toggle-border-color: orange;
 }
 
 /* Compatibility aliases (keep existing variable names working) */
@@ -108,8 +167,9 @@
   }
 }
 
-/* Explicit dark class overrides (applied to <html>.dark) */
-.dark {
+/* Explicit dark overrides (applied to <html>.dark or <html data-theme="dark") */
+.dark,
+[data-theme="dark"] {
   --color-bg: #0b1220;
   --color-surface: #071024;
   --color-text: #e6eef6;
@@ -121,4 +181,22 @@
   --component-card-bg: #0d1016;
   --component-card-text: #e6eef6;
   --component-card-border: rgb(255 255 255 / 3%);
+  --bg-badge: rgb(0 0 255 / 100%);
+}
+
+/* Explicit light overrides (applied to <html>.light or <html data-theme="light")
+  to force light theme (this ensures an explicit user choice wins over the
+  prefers-color-scheme media query) */
+.light,
+[data-theme="light"] {
+  --color-bg: #fff;
+  --color-surface: #f8fafc;
+  --color-text: #0f172a;
+  --color-muted: #6b7280;
+  --pattern-bg-color: var(--color-surface);
+  --pattern-dot: rgb(2 6 23 / 12%);
+  --component-card-bg: #23262d;
+  --component-card-text: #fff;
+  --component-card-border: rgb(255 255 255 / 8%);
+  --bg-badge: rgb(200 200 255 / 100%);
 }
