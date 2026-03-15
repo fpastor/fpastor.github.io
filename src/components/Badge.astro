@@ -1,12 +1,33 @@
-<span class="badge"><slot /></span>
+---
+interface Props {
+  url?: string;
+  target?: string;
+  rel?: string;
+}
+
+const { url, target = "_blank", rel = "noopener" } = Astro.props;
+---
+
+{
+  url ? (
+    <a href={url} target={target} rel={rel} class="badge">
+      <slot />
+    </a>
+  ) : (
+    <span class="badge">
+      <slot />
+    </span>
+  )
+}
 
 <style>
   .badge {
+    background: var(--bg-badge);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
     display: inline-block;
-    padding: 0.25rem 0.5rem;
-    border-radius: 8px;
-    background: rgba(2, 6, 23, 0.06);
-    font-weight: 600;
-    font-size: 0.85rem;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    padding: var(--space-xxs) var(--space-sm);
   }
 </style>

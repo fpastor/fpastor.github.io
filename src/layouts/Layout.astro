@@ -29,28 +29,17 @@ const { title, description } = Astro.props;
 
     <title>{title}</title>
     <script is:inline>
-      // Aplicar tema inmediatamente para evitar flash
-      const getTheme = () => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
+      // Apply explicit user theme as data attribute early to avoid FOUC.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "light" || t === "dark") {
+            document.documentElement.setAttribute("data-theme", t);
+          }
+        } catch (e) {
+          /* ignore */
         }
-        return "system";
-      };
-
-      const theme = getTheme();
-      const isDark =
-        theme === "dark" ||
-        (theme === "system" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-      if (isDark) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
+      })();
     </script>
   </head>
   <body>
@@ -62,6 +51,7 @@ const { title, description } = Astro.props;
 
   <style is:global>
     :root {
+      /* keep */
     }
 
     html {
@@ -70,10 +60,10 @@ const { title, description } = Astro.props;
     }
 
     body {
+      align-items: center;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      align-items: center;
     }
 
     @media (prefers-reduced-motion: reduce) {

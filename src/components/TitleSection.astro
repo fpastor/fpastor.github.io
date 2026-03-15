@@ -1,3 +1,22 @@
-<h2 class={Astro.props.className}>
+---
+import Icon from "@/components/Icon.astro";
+
+interface Props {
+  iconName: string;
+}
+
+const { iconName, ...props } = Astro.props;
+---
+
+<h2>
+  {iconName && <Icon name={iconName} {...props} />}
   <slot />
 </h2>
+
+<style>
+  h2 {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+  }
+</style>

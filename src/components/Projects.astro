@@ -1,20 +1,17 @@
 ---
-import CSharp from "./icons/CSharp.astro";
-import GitHub from "./icons/GitHub.astro";
-import Link from "./icons/Link.astro";
-import Microsoft from "./icons/Microsoft.astro";
+import Icon from "./Icon.astro";
 import LinkButton from "./LinkButton.astro";
 
 const TAGS = {
   WPF: {
     name: "WPF",
     class: "bg-white text-black",
-    icon: CSharp,
+    iconName: "csharp",
   },
   DOTNET: {
     name: ".NET",
     class: "bg-white text-black",
-    icon: Microsoft,
+    iconName: "microsoft",
   },
 };
 
@@ -45,7 +42,7 @@ const PROJECTS = [
             {tags.map((tag) => (
               <li class="tag">
                 <span>
-                  <tag.icon width="var(--icon-sm)" height="var(--icon-sm)" />
+                  <Icon name={tag.iconName} size="var(--icon-sm)" />
                   {tag.name}
                 </span>
               </li>
@@ -56,13 +53,13 @@ const PROJECTS = [
           <footer class="project-meta">
             {github && (
               <LinkButton href={github}>
-                <GitHub width="var(--icon-sm)" height="var(--icon-sm)" />
+                <Icon name="github" size="var(--icon-sm)" />
                 Code
               </LinkButton>
             )}
             {link && (
               <LinkButton href={link}>
-                <Link width="var(--icon-sm)" height="var(--icon-sm)" />
+                <Icon name="link" size="var(--icon-sm)" />
                 Preview
               </LinkButton>
             )}
@@ -79,44 +76,51 @@ const PROJECTS = [
     flex-direction: column;
     gap: 4rem;
   }
+
   .project-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
     align-items: start;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr 1fr;
   }
+
   .project-media img {
-    width: 100%;
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.06);
+    box-shadow: 0 8px 20px rgb(2 6 23 / 6%);
+    width: 100%;
   }
+
   .project-body h3 {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.5rem;
   }
+
   .project-tags {
     display: flex;
     gap: 0.5rem;
     list-style: none;
+    margin: 0 0 0.75rem;
     padding: 0;
-    margin: 0 0 0.75rem 0;
   }
+
   .tag span {
+    align-items: center;
+    background: rgb(2 6 23 / 4%);
+    border-radius: 9999px;
     display: inline-flex;
     gap: 0.5rem;
-    align-items: center;
     padding: 0.3rem 0.5rem;
-    border-radius: 9999px;
-    background: rgba(2, 6, 23, 0.04);
   }
+
   .project-desc {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1rem;
   }
+
   .project-meta {
     display: flex;
     gap: 0.5rem;
   }
 
-  @media (max-width: 900px) {
+  @media (width <= 900px) {
     .project-item {
       grid-template-columns: 1fr;
     }

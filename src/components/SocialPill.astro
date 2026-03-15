@@ -1,21 +1,55 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  href: string;
+  iconName?: string;
+  iconStroke?: string;
+  iconFill?: string;
+}
+
+const { href, iconName, iconStroke, iconFill } = Astro.props;
+---
+
 <a
   {...Astro.props}
   target="_blank"
   rel="noopener noreferer"
   class="social-pill"
 >
+  {
+    iconName && (
+      <Icon
+        name={iconName}
+        size="var(--icon-size-sm)"
+        stroke={iconStroke}
+        fill={iconFill}
+      />
+    )
+  }
   <slot />
 </a>
 
 <style>
   .social-pill {
-    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 0.6rem;
-    border-radius: 9999px;
-    background: rgba(2, 6, 23, 0.04);
-    text-decoration: none;
+    background: rgb(2 6 23 / 4%);
+    border: 1px solid rgb(0 0 0 / 10%);
+    border-radius: var(--radius-full);
     color: inherit;
+    display: inline-flex;
+    font-size: var(--font-size-sm);
+    gap: 0.5rem;
+    padding: var(--space-sm) var(--space-lg);
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      background: black;
+      border-color: black;
+      color: white;
+    }
   }
 </style>

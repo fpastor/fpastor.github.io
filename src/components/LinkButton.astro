@@ -8,16 +8,17 @@ const { href } = Astro.props;
 
 <style>
   .link-button {
-    display: inline-flex;
     align-items: center;
+    background: var(--accent);
+    border-radius: 8px;
+    color: white;
+    display: inline-flex;
+    font-weight: 600;
     gap: 0.5rem;
     padding: 0.45rem 0.75rem;
-    border-radius: 8px;
-    background: var(--accent);
-    color: white;
     text-decoration: none;
-    font-weight: 600;
   }
+
   .link-button:hover {
     transform: translateY(-1px);
   }

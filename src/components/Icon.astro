@@ -1,0 +1,56 @@
+---
+import BriefcaseIcon from "@/icons/briefcase.svg";
+import BurgerMenuIcon from "@/icons/burgermenu.svg";
+import CodeIcon from "@/icons/code.svg";
+import CShapIcon from "@/icons/csharp.svg";
+import DiscordIcon from "@/icons/discord.svg";
+import GitHubIcon from "@/icons/github.svg";
+import LinkIcon from "@/icons/link.svg";
+import LinkedInIcon from "@/icons/linkedin.svg";
+import MailIcon from "@/icons/mail.svg";
+import MicrosoftIcon from "@/icons/microsoft.svg";
+import MoonIcon from "@/icons/moon.svg";
+import SunIcon from "@/icons/sun.svg";
+import SystemIcon from "@/icons/system.svg";
+import WindowsIcon from "@/icons/windows.svg";
+
+interface Props {
+  name: string;
+  size?: string;
+  stroke?: string;
+  fill?: string;
+  [key: string]: any;
+}
+
+const iconsMap = {
+  briefcase: BriefcaseIcon,
+  burgermenu: BurgerMenuIcon,
+  code: CodeIcon,
+  csharp: CShapIcon,
+  discord: DiscordIcon,
+  github: GitHubIcon,
+  link: LinkIcon,
+  linkedin: LinkedInIcon,
+  mail: MailIcon,
+  microsoft: MicrosoftIcon,
+  moon: MoonIcon,
+  sun: SunIcon,
+  system: SystemIcon,
+  windows: WindowsIcon,
+};
+
+const {
+  name,
+  size = "var(--icon-size-md)",
+  stroke = "var(--icon-stroke-color)",
+  fill = "var(--icon-fill-color)",
+  ...props
+} = Astro.props;
+const SvgIcon = iconsMap[name];
+
+if (!SvgIcon) {
+  throw new Error(`Icon "${name}" not found`);
+}
+---
+
+<SvgIcon width={size} height={size} stroke={stroke} fill={fill} {...props} />
