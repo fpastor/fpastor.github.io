@@ -7,12 +7,6 @@ import SocialPill from "../components/SocialPill.astro";
 import TitleSection from "../components/TitleSection.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.scss";
-/* Icons */
-import BriefcaseIcon from "../components/icons/Briefcase.astro";
-import CodeIcon from "../components/icons/Code.astro";
-import DiscordIcon from "../components/icons/Discord.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import MailIcon from "../components/icons/Mail.astro";
 ---
 
 <Layout
@@ -21,51 +15,52 @@ import MailIcon from "../components/icons/Mail.astro";
 >
   <main>
     <SectionContainer>
-      <h1>
-        Hi there! I'm Fer!
-        <a
-          href="https://www.linkedin.com/in/fernando-pastor/"
-          target="_blanc"
-          rel="noopener"
+      <div class="title">
+        <h1>Hi there! I'm Fer!</h1>
+        <Badge url="https://www.linkedin.com/in/fernando-pastor/"
+          >Currently in Intensive Learning</Badge
         >
-          <Badge>Currently in Intensive Learning</Badge>
-        </a>
-      </h1>
-      <h2>
-        My name is Fernando Pastor, and I'm a seasoned professional with over 20
-        years of experience in <span>
-          graphic design, web development, and digital marketing
-        </span>, specializing in marketing strategies.
-      </h2>
+      </div>
+      <div class="subtitle">
+        <h2>
+          My name is Fernando Pastor, and I'm a seasoned professional with over
+          20 years of experience in <span>
+            graphic design, web development, and digital marketing
+          </span>, specializing in marketing strategies.
+        </h2>
+      </div>
       <nav>
-        <SocialPill href="https://www.linkedin.com/in/fernando-pastor/">
-          <LinkedInIcon width="var(--icon-sm)" height="var(--icon-sm)" />
+        <SocialPill
+          iconName="linkedin"
+          iconFill="currentColor"
+          href="https://www.linkedin.com/in/fernando-pastor/"
+        >
           LinkedIn
         </SocialPill>
-        <SocialPill href="https://discordapp.com/users/303308172066553876">
-          <DiscordIcon width="var(--icon-sm)" height="var(--icon-sm)" />
+        <SocialPill
+          iconName="discord"
+          iconFill="currentColor"
+          href="https://discordapp.com/users/303308172066553876"
+        >
           Discord
         </SocialPill>
-        <SocialPill href="mailto:fer@fernandopastor.es">
-          <MailIcon width="var(--icon-sm)" height="var(--icon-sm)" />
+        <SocialPill
+          iconName="mail"
+          iconStroke="currentColor"
+          href="mailto:fer@fernandopastor.es"
+        >
           fer@fernandopastor.es
         </SocialPill>
       </nav>
     </SectionContainer>
 
     <SectionContainer id="experience">
-      <TitleSection>
-        <BriefcaseIcon />
-        Experience
-      </TitleSection>
+      <TitleSection iconName="briefcase">Experience</TitleSection>
       <Experience />
     </SectionContainer>
 
     <SectionContainer id="projects">
-      <TitleSection>
-        <CodeIcon />
-        Proyectos
-      </TitleSection>
+      <TitleSection iconName="code">Proyectos</TitleSection>
       <Projects />
     </SectionContainer>
   </main>
@@ -76,12 +71,37 @@ import MailIcon from "../components/icons/Mail.astro";
     display: flex;
     flex-direction: column;
     gap: 3rem;
-
     max-width: 56rem;
+    padding: var(--space-xl);
   }
+
   main nav {
     display: flex;
     gap: 0.75rem;
     margin-top: 1rem;
+  }
+
+  .title {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding-top: 8rem;
+
+    h1 {
+      font-size: var(--font-size-5xl);
+      font-weight: var(--font-weight-black);
+    }
+  }
+
+  .subtitle {
+    h2 {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-medium);
+    }
+
+    span {
+      font-weight: var(--font-weight-medium);
+    }
   }
 </style>
