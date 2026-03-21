@@ -18,3 +18,66 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* Metric Cards */
+  .metrics-section {
+    background: var(--surface-container-low);
+    padding: 6rem 2rem;
+
+    .metrics-grid {
+      @media (width < 768px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      @media (width >= 768px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      background: rgb(171 173 174 / 15%);
+      display: grid;
+      gap: 1px;
+      margin: 0 auto;
+      max-width: var(--max-width);
+
+      .metric-card {
+        background: var(--surface);
+        padding: 3rem;
+        transition: all 0.5s ease;
+
+        & h3 {
+          font-family: var(--font-headline);
+          font-size: 3.75rem;
+          font-weight: 700;
+          letter-spacing: -0.05em;
+          margin: 1rem 0 0.5rem;
+        }
+
+        & p {
+          color: var(--on-surface-variant);
+        }
+
+        &.label {
+          color: var(--primary);
+          font-family: var(--font-headline);
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+        }
+
+        &:hover {
+          background: var(--primary);
+          color: var(--on-primary);
+
+          &.label {
+            color: var(--on-primary);
+          }
+
+          & p {
+            color: rgb(230 229 255 / 80%);
+          }
+        }
+      }
+    }
+  }
+</style>
