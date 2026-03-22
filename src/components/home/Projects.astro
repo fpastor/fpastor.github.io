@@ -1,4 +1,36 @@
-<!-- Projects Section -->
+---
+import MainProject from "./MainProject.astro";
+import SideProject from "./SideProject.astro";
+
+const projects = {
+  mainProject: {
+    title: "NEURAL_NET DASHBOARD",
+    description:
+      "Real-time threat detection interface built with React, Three.js, and high-performance WebGL shaders.",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBwVu9wycIn7nrtyLs0JD4gyMQzyCLSWsTaFXDlV8csIGmwWR1wNEBBXBvKZRIEoIKplYbVTlCY1IRGdtFCmwdc8Su1jISkjVuBrxeP9uRTnUVY7p-cfymnihTCQTfWbEFMFZnDo8_X3LjWoxcXrGAQhBKdtz031Tmb8L9IKvb5U2eF-3BmCeJYA0z-wn3BBZUWPHjacVoSuOOur-0IQY6I8e5RJ4E1eM9DR9aGjOJSZCu4z2vSpATBzRh67Gx9q1WDDcK0sEkx-y8",
+    imageAlt: "Neural Net Dashboard",
+    tags: ["Web3", "Security"],
+  },
+  sideProjects: [
+    {
+      title: "OS_KNOT COMPONENT LIB",
+      imageUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDuUGRwJ6oFNgDv59QsDPLGstcSht_3ArmwEAjVRK1lEegIhm1u3pFORVQHqPfNyNT0gHIBl6wMQ6yaxFi15fdz_8hjJnEPX4RwamDuC9lqKICWG2Qv9kUIlczRApTVxib4W34yHX0RbdIKKoo_pWVrp-gWNKAFYDwqqYUivHGu1rQywSgz4YwfDXrUDznQELRA7NLSUkhnpGM-jixGrj7vlZ8v-YgsqZ2njbm4-Z8DB0JmzC2xkJmkuzIMAHB14vOyOwoX11IUVK0",
+      imageAlt: "Code Snippets",
+      meta: "NPM Package // 45k Weekly Downloads",
+    },
+    {
+      title: "SYNTH_CORE INFRA",
+      imageUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBLur2r7UZI_6fgTt1o3_LwjCunSupIJKaQxojoI2WsAkaKlgGHudoD098oD4e7V7fkeXW34fuFLJI8kwmsgXyqBv51f_x8vJ_MyRhad-aqzGW7FckoXozZCozIvBv_Kj53qUP5xmwwZ_T7LkImyvJ-QIxMDskll0TBUyvGRzOxG5nlpMflJCfJ3hevr2lT_PxsQh3Lm_v0u6Cd-21v_RjVFW_yjtmLi3oMub812gj27XS7TSF2DqXekn7dFaiN_T_fn4jkwwdNF50",
+      imageAlt: "Data Center",
+      meta: "Infrastructure as Code // Terraform",
+    },
+  ],
+};
+---
+
 <section class="container projects-section">
   <div class="section-header">
     <div>
@@ -10,193 +42,87 @@
     </div>
   </div>
   <div class="projects-layout">
-    <div class="main-project">
-      <div class="project-image-wrapper">
-        <img
-          alt="Cybersecurity Dashboard"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwVu9wycIn7nrtyLs0JD4gyMQzyCLSWsTaFXDlV8csIGmwWR1wNEBBXBvKZRIEoIKplYbVTlCY1IRGdtFCmwdc8Su1jISkjVuBrxeP9uRTnUVY7p-cfymnihTCQTfWbEFMFZnDo8_X3LjWoxcXrGAQhBKdtz031Tmb8L9IKvb5U2eF-3BmCeJYA0z-wn3BBZUWPHjacVoSuOOur-0IQY6I8e5RJ4E1eM9DR9aGjOJSZCu4z2vSpATBzRh67Gx9q1WDDcK0sEkx-y8"
-        />
-        <div class="overlay-tags">
-          <span>Web3</span>
-          <span>Security</span>
-        </div>
-      </div>
-      <div class="project-info">
-        <div>
-          <h3>NEURAL_NET DASHBOARD</h3>
-          <p>
-            Real-time threat detection interface built with React, Three.js, and
-            high-performance WebGL shaders.
-          </p>
-        </div>
-        <span class="material-symbols-outlined arrow-icon">arrow_outward</span>
-      </div>
-    </div>
+    <MainProject
+      title={projects.mainProject.title}
+      description={projects.mainProject.description}
+      imageUrl={projects.mainProject.imageUrl}
+      imageAlt={projects.mainProject.imageAlt}
+      tags={projects.mainProject.tags}
+    />
     <div class="side-projects">
-      <div class="side-project">
-        <div class="side-image">
-          <img
-            alt="Code Snippets"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuUGRwJ6oFNgDv59QsDPLGstcSht_3ArmwEAjVRK1lEegIhm1u3pFORVQHqPfNyNT0gHIBl6wMQ6yaxFi15fdz_8hjJnEPX4RwamDuC9lqKICWG2Qv9kUIlczRApTVxib4W34yHX0RbdIKKoo_pWVrp-gWNKAFYDwqqYUivHGu1rQywSgz4YwfDXrUDznQELRA7NLSUkhnpGM-jixGrj7vlZ8v-YgsqZ2njbm4-Z8DB0JmzC2xkJmkuzIMAHB14vOyOwoX11IUVK0"
+      {
+        projects.sideProjects.map((project) => (
+          <SideProject
+            title={project.title}
+            imageUrl={project.imageUrl}
+            imageAlt={project.imageAlt}
+            meta={project.meta}
           />
-        </div>
-        <h4>OS_KNOT COMPONENT LIB</h4>
-        <p class="meta">NPM Package // 45k Weekly Downloads</p>
-      </div>
-      <div class="side-project">
-        <div class="side-image">
-          <img
-            alt="Data Center"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLur2r7UZI_6fgTt1o3_LwjCunSupIJKaQxojoI2WsAkaKlgGHudoD098oD4e7V7fkeXW34fuFLJI8kwmsgXyqBv51f_x8vJ_MyRhad-aqzGW7FckoXozZCozIvBv_Kj53qUP5xmwwZ_T7LkImyvJ-QIxMDskll0TBUyvGRzOxG5nlpMflJCfJ3hevr2lT_PxsQh3Lm_v0u6Cd-21v_RjVFW_yjtmLi3oMub812gj27XS7TSF2DqXekn7dFaiN_T_fn4jkwwdNF50"
-          />
-        </div>
-        <h4>SYNTH_CORE INFRA</h4>
-        <p class="meta">Infrastructure as Code // Terraform</p>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-  /* Projects Section (shared structure) */
   .projects-section {
     padding: 8rem 0;
-  }
 
-  .section-header {
-    align-items: flex-end;
-    border-bottom: 1px solid rgb(171 173 174 / 15%);
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5rem;
-    padding-bottom: 2rem;
-  }
+    & .section-header {
+      align-items: flex-end;
+      border-bottom: 1px solid rgb(171 173 174 / 15%);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5rem;
+      padding-bottom: 2rem;
 
-  .section-header .tag {
-    color: var(--primary);
-    font-family: var(--font-headline);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
+      & .tag {
+        color: var(--primary);
+        font-family: var(--font-headline);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
 
-  .section-header h2 {
-    font-family: var(--font-headline);
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-  }
+      & h2 {
+        font-family: var(--font-headline);
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+      }
 
-  .header-meta {
-    color: var(--outline);
-    display: none;
-    font-family: var(--font-headline);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-align: right;
-    text-transform: uppercase;
-  }
+      & .header-meta {
+        @media (width < 768px) {
+          display: none;
+        }
 
-  @media (width >= 768px) {
-    .header-meta {
-      display: block;
+        @media (width >= 768px) {
+          display: block;
+        }
+
+        color: var(--outline);
+        font-family: var(--font-headline);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-align: right;
+        text-transform: uppercase;
+      }
     }
   }
 
   .projects-layout {
-    display: grid;
-    gap: 3rem;
-    grid-template-columns: 1fr;
-  }
-
-  @media (width >= 1024px) {
-    .projects-layout {
+    @media (width >= 1024px) {
       grid-template-columns: repeat(12, 1fr);
     }
-  }
 
-  .main-project {
-    grid-column: span 12;
-  }
-
-  @media (width >= 1024px) {
-    .main-project {
-      grid-column: span 8;
+    @media (width < 1024px) {
+      grid-template-columns: 1fr;
     }
-  }
 
-  .project-image-wrapper {
-    aspect-ratio: 16/9;
-    background: var(--surface-container-highest);
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .project-image-wrapper img {
-    filter: grayscale(1);
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.7s ease;
-    width: 100%;
-  }
-
-  .main-project:hover img {
-    filter: grayscale(0);
-    transform: scale(1.05);
-  }
-
-  .overlay-tags {
-    bottom: 1.5rem;
-    display: flex;
-    gap: 0.5rem;
-    left: 1.5rem;
-    position: absolute;
-  }
-
-  .overlay-tags span {
-    background: var(--on-surface);
-    color: var(--surface);
-    font-family: var(--font-headline);
-    font-size: 0.6rem;
-    padding: 0.25rem 0.5rem;
-    text-transform: uppercase;
-  }
-
-  .project-info {
-    align-items: flex-start;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .project-info h3 {
-    font-family: var(--font-headline);
-    font-size: 1.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-
-  .main-project:hover h3 {
-    color: var(--primary);
-  }
-
-  .project-info p {
-    color: var(--on-surface-variant);
-    margin-top: 0.5rem;
-    max-width: 28rem;
-  }
-
-  .arrow-icon {
-    color: var(--outline-variant);
-    font-size: 2.25rem;
-    transition: color 0.3s;
-  }
-
-  .main-project:hover .arrow-icon {
-    color: var(--primary);
+    display: grid;
+    gap: 3rem;
   }
 
   .side-projects {
@@ -210,50 +136,5 @@
     .side-projects {
       grid-column: span 4;
     }
-  }
-
-  .side-project {
-    border-bottom: 1px solid rgb(171 173 174 / 15%);
-    cursor: pointer;
-    padding-bottom: 2rem;
-  }
-
-  .side-image {
-    aspect-ratio: 16/9;
-    background: var(--surface-container-highest);
-    margin-bottom: 1rem;
-    overflow: hidden;
-  }
-
-  .side-image img {
-    filter: grayscale(1);
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.7s ease;
-    width: 100%;
-  }
-
-  .side-project:hover img {
-    filter: grayscale(0);
-  }
-
-  .side-project h4 {
-    font-family: var(--font-headline);
-    font-size: 1.25rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-
-  .side-project:hover h4 {
-    color: var(--primary);
-  }
-
-  .side-project .meta {
-    color: var(--outline);
-    font-family: var(--font-headline);
-    font-size: 0.7rem;
-    margin-top: 0.25rem;
-    text-transform: uppercase;
   }
 </style>

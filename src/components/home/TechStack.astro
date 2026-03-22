@@ -1,39 +1,22 @@
+---
+import TechItem from "./TechItem.astro";
+
+const techStack = [
+  { name: "TypeScript", icon: "terminal" },
+  { name: "Next.js", icon: "data_object" },
+  { name: "PostgreSQL", icon: "storage" },
+  { name: "AWS / CDK", icon: "cloud" },
+  { name: "Docker", icon: "deployed_code" },
+  { name: "Rust/WASM", icon: "polyline" },
+];
+---
+
 <!-- Tech Stack Section -->
 <section class="tech-section">
   <div class="container">
-    <span class="tag-status" style="background:none; padding:0;"
-      >CAPABILITIES_MATRIX</span
-    >
-    <h2
-      style="font-family: var(--font-headline); font-size: 3rem; margin-bottom: 4rem; text-transform: uppercase;"
-    >
-      Tooling &amp; Environment
-    </h2>
+    <span class="tag-status">Capabilities_Matrix</span>
     <div class="tech-grid">
-      <div class="tech-item">
-        <span class="material-symbols-outlined">terminal</span>
-        <p>TypeScript</p>
-      </div>
-      <div class="tech-item">
-        <span class="material-symbols-outlined">data_object</span>
-        <p>Next.js</p>
-      </div>
-      <div class="tech-item">
-        <span class="material-symbols-outlined">storage</span>
-        <p>PostgreSQL</p>
-      </div>
-      <div class="tech-item">
-        <span class="material-symbols-outlined">cloud</span>
-        <p>AWS / CDK</p>
-      </div>
-      <div class="tech-item">
-        <span class="material-symbols-outlined">deployed_code</span>
-        <p>Docker</p>
-      </div>
-      <div class="tech-item">
-        <span class="material-symbols-outlined">polyline</span>
-        <p>Rust/WASM</p>
-      </div>
+      {techStack.map((tech) => <TechItem name={tech.name} icon={tech.icon} />)}
     </div>
   </div>
 </section>
@@ -44,7 +27,23 @@
     background: var(--surface-container);
     padding: 8rem 2rem;
 
+    .tag-status {
+      color: var(--secondary);
+      display: inline-block;
+      font-family: var(--font-headline);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      padding: 0;
+      text-transform: uppercase;
+    }
+
     .tech-grid {
+      @media (width < 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       @media (width >= 768px) {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -53,39 +52,10 @@
         grid-template-columns: repeat(6, 1fr);
       }
 
-      /* grid-template-columns: repeat(2, 1fr); */
       display: grid;
       gap: 1rem;
       margin: 0 auto;
       max-width: var(--max-width);
-
-      .tech-item {
-        align-items: center;
-        background: var(--surface);
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        padding: 1.5rem;
-        text-align: center;
-        transition: background 0.3s;
-
-        &:hover {
-          background: var(--surface-container-highest);
-        }
-
-        & span {
-          color: var(--primary);
-          font-size: 1.875rem;
-        }
-
-        & p {
-          font-family: var(--font-headline);
-          font-size: 0.7rem;
-          font-weight: 700;
-          text-transform: uppercase;
-        }
-      }
     }
   }
 </style>

@@ -1,0 +1,56 @@
+---
+interface Props {
+  label: string;
+  value: string;
+  description: string;
+}
+
+const { label, value, description } = Astro.props as Props;
+---
+
+<div class="metric-card">
+  <span class="label">{label}</span>
+  <h3>{value}</h3>
+  <p>{description}</p>
+</div>
+
+<style>
+  .metric-card {
+    background: var(--surface);
+    padding: 3rem;
+    transition: all 0.5s ease;
+
+    & h3 {
+      font-family: var(--font-headline);
+      font-size: 3.75rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      margin: 1rem 0 0.5rem;
+    }
+
+    & p {
+      color: var(--on-surface-variant);
+    }
+
+    &.label {
+      color: var(--primary);
+      font-family: var(--font-headline);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    &:hover {
+      background: var(--primary);
+      color: var(--on-primary);
+
+      &.label {
+        color: var(--on-primary);
+      }
+
+      & p {
+        color: rgb(230 229 255 / 80%);
+      }
+    }
+  }
+</style>

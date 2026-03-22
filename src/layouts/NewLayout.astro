@@ -21,6 +21,10 @@ const {
 const title = propTitle ?? frontmatter?.title ?? "Default Title";
 const description =
   propDescription ?? frontmatter?.description ?? "Default Description";
+const current =
+  typeof Astro.request !== "undefined"
+    ? new URL(Astro.request.url).pathname
+    : "/";
 ---
 
 <!doctype html>
@@ -40,7 +44,7 @@ const description =
     />
   </head>
   <body>
-    <Header />
+    <Header current={current} />
     <main>
       <slot />
     </main>

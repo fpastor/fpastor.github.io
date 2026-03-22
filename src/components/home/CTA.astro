@@ -1,13 +1,21 @@
-<!-- CTA Section -->
+---
+const cta = {
+  title: "BUILD_BETTER",
+  description:
+    "Ready to architect your next digital system? Let's discuss protocol, performance, and aesthetics.",
+  buttonText: "Initiate Contact",
+  buttonLink: "mailto:hello@architect.os",
+};
+---
+
 <section class="container cta-section">
-  <h2 class="text-stroke">BUILD_BETTER</h2>
+  <h2 class="text-stroke">{cta.title}</h2>
   <div class="cta-content">
     <p>
-      Ready to architect your next digital system? Let's discuss protocol,
-      performance, and aesthetics.
+      {cta.description}
     </p>
-    <a class="cta-button" href="mailto:hello@architect.os">
-      Initiate Contact
+    <a class="cta-button" href={cta.buttonLink}>
+      {cta.buttonText}
       <div class="shine"></div>
     </a>
   </div>

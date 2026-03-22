@@ -1,26 +1,39 @@
-<!-- Metrics Section -->
+---
+import MetricCard from "./MetricCard.astro";
+
+const metrics = [
+  {
+    label: "01 // EXPERIENCE",
+    value: "08 YRS",
+    description: "Writing production-grade code for global startups.",
+  },
+  {
+    label: "02 // THROUGHPUT",
+    value: "142+",
+    description: "Projects shipped from inception to deployment.",
+  },
+  {
+    label: "03 // UP-TIME",
+    value: "99.9%",
+    description: "Obsessive focus on code reliability and maintenance.",
+  },
+];
+---
+
 <section class="metrics-section">
   <div class="metrics-grid">
-    <div class="metric-card">
-      <span class="label">01 // EXPERIENCE</span>
-      <h3>08 YRS</h3>
-      <p>Writing production-grade code for global startups.</p>
-    </div>
-    <div class="metric-card">
-      <span class="label">02 // THROUGHPUT</span>
-      <h3>142+</h3>
-      <p>Projects shipped from inception to deployment.</p>
-    </div>
-    <div class="metric-card">
-      <span class="label">03 // UP-TIME</span>
-      <h3>99.9%</h3>
-      <p>Obsessive focus on code reliability and maintenance.</p>
-    </div>
+    {
+      metrics.map((metric) => (
+        <MetricCard
+          label={metric.label}
+          value={metric.value}
+          description={metric.description}
+        />
+      ))
+    }
   </div>
 </section>
-
 <style>
-  /* Metric Cards */
   .metrics-section {
     background: var(--surface-container-low);
     padding: 6rem 2rem;
@@ -39,45 +52,6 @@
       gap: 1px;
       margin: 0 auto;
       max-width: var(--max-width);
-
-      .metric-card {
-        background: var(--surface);
-        padding: 3rem;
-        transition: all 0.5s ease;
-
-        & h3 {
-          font-family: var(--font-headline);
-          font-size: 3.75rem;
-          font-weight: 700;
-          letter-spacing: -0.05em;
-          margin: 1rem 0 0.5rem;
-        }
-
-        & p {
-          color: var(--on-surface-variant);
-        }
-
-        &.label {
-          color: var(--primary);
-          font-family: var(--font-headline);
-          font-size: 0.75rem;
-          font-weight: 700;
-          letter-spacing: 0.15em;
-        }
-
-        &:hover {
-          background: var(--primary);
-          color: var(--on-primary);
-
-          &.label {
-            color: var(--on-primary);
-          }
-
-          & p {
-            color: rgb(230 229 255 / 80%);
-          }
-        }
-      }
     }
   }
 </style>

@@ -1,0 +1,116 @@
+---
+interface MainProjectProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+  imageAlt: string;
+  tags: string[];
+}
+
+const { title, description, imageUrl, imageAlt, tags } =
+  Astro.props as MainProjectProps;
+---
+
+<div class="main-project">
+  <div class="project-image-wrapper">
+    <img alt={imageAlt} src={imageUrl} />
+    <div class="overlay-tags">
+      {tags.map((tag) => <span>{tag}</span>)}
+    </div>
+  </div>
+  <div class="project-info">
+    <div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+    <span class="material-symbols-outlined arrow-icon">arrow_outward</span>
+  </div>
+</div>
+
+<style>
+  .main-project {
+    @media (width >= 1024px) {
+      grid-column: span 8;
+    }
+
+    @media (width < 1024px) {
+      grid-column: span 12;
+    }
+
+    .project-image-wrapper {
+      aspect-ratio: 16/9;
+      background: var(--surface-container-highest);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      position: relative;
+
+      & img {
+        filter: grayscale(1);
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.7s ease;
+        width: 100%;
+      }
+
+      .overlay-tags {
+        bottom: 1.5rem;
+        display: flex;
+        gap: 0.5rem;
+        left: 1.5rem;
+        position: absolute;
+
+        & span {
+          background: var(--on-surface);
+          color: var(--surface);
+          font-family: var(--font-headline);
+          font-size: 0.6rem;
+          padding: 0.25rem 0.5rem;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .project-info {
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+
+      & h3 {
+        font-family: var(--font-headline);
+        font-size: 1.875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: color 0.3s;
+      }
+    }
+
+    & .arrow-icon {
+      color: var(--outline-variant);
+      font-size: 2.25rem;
+      transition: color 0.3s;
+    }
+
+    &:hover {
+      & img {
+        filter: grayscale(0);
+        transform: scale(1.05);
+      }
+
+      & h3 {
+        color: var(--primary);
+      }
+
+      &.project-info {
+        & p {
+          color: var(--on-surface-variant);
+          margin-top: 0.5rem;
+          max-width: 28rem;
+        }
+      }
+
+      .arrow-icon {
+        color: var(--primary);
+      }
+    }
+  }
+</style>

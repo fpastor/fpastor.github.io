@@ -1,0 +1,65 @@
+---
+interface SideProjectProps {
+  title: string;
+  imageUrl: string;
+  imageAlt: string;
+  meta: string;
+}
+
+const { title, imageUrl, imageAlt, meta } = Astro.props as SideProjectProps;
+---
+
+<div class="side-project">
+  <div class="side-image">
+    <img alt={imageAlt} src={imageUrl} />
+  </div>
+  <h4>{title}</h4>
+  <p class="meta">{meta}</p>
+</div>
+
+<style>
+  .side-project {
+    border-bottom: 1px solid rgb(171 173 174 / 15%);
+    cursor: pointer;
+    padding-bottom: 2rem;
+
+    & .side-image {
+      aspect-ratio: 16/9;
+      background: var(--surface-container-highest);
+      margin-bottom: 1rem;
+      overflow: hidden;
+
+      & img {
+        filter: grayscale(1);
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.7s ease;
+        width: 100%;
+      }
+
+      &:hover img {
+        filter: grayscale(0);
+      }
+    }
+
+    & h4 {
+      font-family: var(--font-headline);
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    &:hover h4 {
+      color: var(--primary);
+    }
+
+    & .meta {
+      color: var(--outline);
+      font-family: var(--font-headline);
+      font-size: 0.7rem;
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+    }
+  }
+</style>
