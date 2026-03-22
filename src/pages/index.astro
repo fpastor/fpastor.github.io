@@ -1,106 +1,19 @@
 ---
-import Badge from "../components/Badge.astro";
-import Experience from "../components/Experience.astro";
-import Projects from "../components/Projects.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import SocialPill from "../components/SocialPill.astro";
-import TitleSection from "../components/TitleSection.astro";
-import Layout from "../layouts/Layout.astro";
+import CTA from "@/components/home/CTA.astro";
+import Hero from "@/components/home/Hero.astro";
+import Metrics from "@/components/home/Metrics.astro";
+import Projects from "@/components/home/Projects.astro";
+import TechStack from "@/components/home/TechStack.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout
-  title="Portfolio de Fernando Pastor - Diseño, Desarrollo y Progración de Aplicaciones Multiplataforma"
-  description="Lalala"
+  title="fernandopastor.dev"
+  description="Bienvenido a mi portafolio personal. Aquí encontrarás información sobre mis proyectos, habilidades y experiencia en el desarrollo de software."
 >
-  <main>
-    <SectionContainer>
-      <div class="title">
-        <h1>Hi there! I'm Fer!</h1>
-        <Badge url="https://www.linkedin.com/in/fernando-pastor/"
-          >Currently in Intensive Learning</Badge
-        >
-      </div>
-      <div class="subtitle">
-        <h2>
-          My name is Fernando Pastor, and I'm a seasoned professional with over
-          20 years of experience in <span>
-            graphic design, web development, and digital marketing
-          </span>, specializing in marketing strategies.
-        </h2>
-      </div>
-      <nav>
-        <SocialPill
-          iconName="linkedin"
-          iconFill="currentColor"
-          href="https://www.linkedin.com/in/fernando-pastor/"
-        >
-          LinkedIn
-        </SocialPill>
-        <SocialPill
-          iconName="discord"
-          iconFill="currentColor"
-          href="https://discordapp.com/users/303308172066553876"
-        >
-          Discord
-        </SocialPill>
-        <SocialPill
-          iconName="mail"
-          iconStroke="currentColor"
-          href="mailto:fer@fernandopastor.es"
-        >
-          fer@fernandopastor.es
-        </SocialPill>
-      </nav>
-    </SectionContainer>
-
-    <SectionContainer id="experience">
-      <TitleSection iconName="briefcase">Experience</TitleSection>
-      <Experience />
-    </SectionContainer>
-
-    <SectionContainer id="projects">
-      <TitleSection iconName="code">Proyectos</TitleSection>
-      <Projects />
-    </SectionContainer>
-  </main>
+  <Hero />
+  <Metrics />
+  <Projects />
+  <TechStack />
+  <CTA />
 </Layout>
-
-<style>
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    max-width: 56rem;
-    padding: var(--space-xl);
-  }
-
-  main nav {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 1rem;
-  }
-
-  .title {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    gap: 0.75rem;
-    padding-top: 8rem;
-
-    h1 {
-      font-size: var(--font-size-5xl);
-      font-weight: var(--font-weight-black);
-    }
-  }
-
-  .subtitle {
-    h2 {
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-medium);
-    }
-
-    span {
-      font-weight: var(--font-weight-medium);
-    }
-  }
-</style>

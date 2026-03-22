@@ -1,211 +1,223 @@
 ---
-import NewLayout from "@/layouts/NewLayout.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
 
-<NewLayout
+<Layout
   title="fernandopastor.dev | Proyectos"
   description="Descubre mis proyectos de desarrollo de software, desde aplicaciones web hasta herramientas de automatización. Cada proyecto refleja mi pasión por la tecnología y mi compromiso con la calidad y la innovación."
 >
-  <!-- Project Hero -->
-  <section class="hero-section">
-    <div class="hero-flex">
-      <header>
-        <span class="case-study-label uppercase tracking-widest"
-          >Case Study / 001</span
-        >
-        <h1 class="hero-title uppercase tracking-tighter">Neural_Arch_V2</h1>
-        <p class="hero-desc">
-          A high-performance neural network visualization engine designed for
-          real-time inference monitoring and architectural debugging.
-        </p>
-      </header>
-      <div class="hero-actions font-headline">
-        <a class="action-link primary-link uppercase tracking-widest" href="#">
-          Live Demo
-          <span class="material-symbols-outlined" style="font-size: 1rem"
-            >open_in_new</span
+  <article class="projects">
+    <section class="hero-section">
+      <div class="hero-flex">
+        <header>
+          <span class="case-study-label uppercase tracking-widest"
+            >Case Study / 001</span
           >
-        </a>
-        <a class="action-link uppercase tracking-widest" href="#">
-          GitHub
-          <span class="material-symbols-outlined" style="font-size: 1rem"
-            >code</span
+          <h1 class="hero-title uppercase tracking-tighter">Neural_Arch_V2</h1>
+          <p class="hero-desc">
+            A high-performance neural network visualization engine designed for
+            real-time inference monitoring and architectural debugging.
+          </p>
+        </header>
+        <div class="hero-actions font-headline">
+          <a
+            class="action-link primary-link uppercase tracking-widest"
+            href="#"
           >
-        </a>
-      </div>
-    </div>
-  </section>
-  <!-- Main Feature Image -->
-  <section class="featured-media">
-    <img
-      alt="Interface Visualization"
-      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhsDRawoMODkQ7tvnz02W8AFnQgVzdVb7lBAxWoi5SNhP4CYM4j1h9WazlSbfHyccn9vIJugMIDUlI3IZG6MTzB5NdlPBvnC3c5NHE40AWby7LyGHbBez3V8y-hQQhfm72j-UKtZR5lFhw3dkHX3qiepQV4htnlG_2kS16npmmcF8vFal9rMUPVx57_UTO61-9MBl9mMYINwRnHW54UFoMj3E-QXtJFH9_OlxGDG2GDUtLvRRBMhcFnDYaN_EM7Qntc6wbh5nnq8Q"
-    />
-    <div class="media-overlay"></div>
-    <div class="status-badge">
-      <div class="status-dot"></div>
-      <span class="status-text uppercase tracking-widest"
-        >Status: Deployment Active</span
-      >
-    </div>
-  </section>
-  <!-- Two-Column Content Layout -->
-  <div class="content-grid">
-    <!-- Primary Column: Case Details -->
-    <section class="main-content-col">
-      <div class="challenge-box">
-        <h2 class="section-title uppercase tracking-tight">
-          <span class="title-accent"></span> The Challenge
-        </h2>
-        <div class="challenge-text">
-          <p>
-            Architecting a system capable of rendering millions of synaptic
-            connections with sub-16ms latency. The primary goal was to provide
-            data scientists with a tool that could visualize gradient flow
-            during training sessions without impacting the compute overhead of
-            the GPU.
-          </p>
-          <p>
-            Leveraging custom WebGL shaders and a Rust-based WASM engine, we
-            achieved a 400% performance increase over previous React-based
-            iterations.
-          </p>
-        </div>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <span class="material-symbols-outlined feature-icon">bolt</span>
-          <div>
-            <h3 class="uppercase tracking-tight">Real-time Stream</h3>
-            <p>
-              Low-latency data ingestion from Python-based backends via
-              high-speed gRPC streams.
-            </p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <span class="material-symbols-outlined feature-icon">hub</span>
-          <div>
-            <h3 class="uppercase tracking-tight">Architectural Mapping</h3>
-            <p>
-              Dynamic generation of layer hierarchies from raw ONNX or PyTorch
-              model files.
-            </p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <span class="material-symbols-outlined feature-icon">monitoring</span>
-          <div>
-            <h3 class="uppercase tracking-tight">Weight Analysis</h3>
-            <p>
-              Heatmap visualization for detecting exploding or vanishing
-              gradients in real-time.
-            </p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <span class="material-symbols-outlined feature-icon">terminal</span>
-          <div>
-            <h3 class="uppercase tracking-tight">CLI Integration</h3>
-            <p>
-              Seamless integration with existing MLOps pipelines through a
-              dedicated terminal client.
-            </p>
-          </div>
+            Live Demo
+            <span class="material-symbols-outlined" style="font-size: 1rem"
+              >open_in_new</span
+            >
+          </a>
+          <a class="action-link uppercase tracking-widest" href="#">
+            GitHub
+            <span class="material-symbols-outlined" style="font-size: 1rem"
+              >code</span
+            >
+          </a>
         </div>
       </div>
     </section>
-    <!-- Sidebar: Technical Specs -->
-    <aside class="sidebar-col">
-      <div class="tech-sidebar">
-        <span class="sidebar-label uppercase tracking-widest"
-          >System Architecture</span
+
+    <!-- Main Feature Image -->
+    <section class="featured-media">
+      <img
+        alt="Interface Visualization"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhsDRawoMODkQ7tvnz02W8AFnQgVzdVb7lBAxWoi5SNhP4CYM4j1h9WazlSbfHyccn9vIJugMIDUlI3IZG6MTzB5NdlPBvnC3c5NHE40AWby7LyGHbBez3V8y-hQQhfm72j-UKtZR5lFhw3dkHX3qiepQV4htnlG_2kS16npmmcF8vFal9rMUPVx57_UTO61-9MBl9mMYINwRnHW54UFoMj3E-QXtJFH9_OlxGDG2GDUtLvRRBMhcFnDYaN_EM7Qntc6wbh5nnq8Q"
+      />
+      <div class="media-overlay"></div>
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span class="status-text uppercase tracking-widest"
+          >Status: Deployment Active</span
         >
-        <ul class="tech-list">
-          <li class="tech-item">
-            <span class="tech-item-label uppercase tracking-widest"
-              >Frontend Engine</span
-            >
-            <span class="tech-item-value">Rust + WASM</span>
-          </li>
-          <li class="tech-item">
-            <span class="tech-item-label uppercase tracking-widest"
-              >Graphics Layer</span
-            >
-            <span class="tech-item-value">WebGL 2.0 / Three.js</span>
-          </li>
-          <li class="tech-item">
-            <span class="tech-item-label uppercase tracking-widest"
-              >State Orchestration</span
-            >
-            <span class="tech-item-value">Redux + Immer</span>
-          </li>
-          <li class="tech-item">
-            <span class="tech-item-label uppercase tracking-widest"
-              >Data Ingestion</span
-            >
-            <span class="tech-item-value">gRPC / Protocol Buffers</span>
-          </li>
-          <li class="tech-item">
-            <span class="tech-item-label uppercase tracking-widest"
-              >Styling Engine</span
-            >
-            <span class="tech-item-value">Tailwind CSS (Custom JIT)</span>
-          </li>
-        </ul>
       </div>
-      <div class="meta-section">
-        <div class="meta-group">
-          <span class="meta-label uppercase tracking-widest"
-            >Development Timeline</span
-          >
-          <p class="meta-value tracking-tighter uppercase">Q3 2023 — Q1 2024</p>
-        </div>
-        <div class="meta-group">
-          <span class="meta-label uppercase tracking-widest">Core Focus</span>
-          <div class="tag-container font-headline">
-            <span class="tag uppercase tracking-wider">Performance</span>
-            <span class="tag uppercase tracking-wider">Visualization</span>
-            <span class="tag uppercase tracking-wider">MLOps</span>
+    </section>
+
+    <!-- Two-Column Content Layout -->
+    <div class="container content-grid">
+      <!-- Primary Column: Case Details -->
+      <section class="main-content-col">
+        <div class="challenge-box">
+          <h2 class="section-title uppercase tracking-tight">
+            <span class="title-accent"></span> The Challenge
+          </h2>
+          <div class="challenge-text">
+            <p>
+              Architecting a system capable of rendering millions of synaptic
+              connections with sub-16ms latency. The primary goal was to provide
+              data scientists with a tool that could visualize gradient flow
+              during training sessions without impacting the compute overhead of
+              the GPU.
+            </p>
+            <p>
+              Leveraging custom WebGL shaders and a Rust-based WASM engine, we
+              achieved a 400% performance increase over previous React-based
+              iterations.
+            </p>
           </div>
         </div>
-      </div>
-    </aside>
-  </div>
-  <!-- Bottom Navigation -->
-  <nav class="project-nav">
-    <a class="nav-item previous" href="#">
-      <div class="nav-item-meta uppercase tracking-widest">
-        <span class="material-symbols-outlined" style="font-size: 14px"
-          >arrow_back</span
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="material-symbols-outlined feature-icon">bolt</span>
+            <div>
+              <h3 class="uppercase tracking-tight">Real-time Stream</h3>
+              <p>
+                Low-latency data ingestion from Python-based backends via
+                high-speed gRPC streams.
+              </p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="material-symbols-outlined feature-icon">hub</span>
+            <div>
+              <h3 class="uppercase tracking-tight">Architectural Mapping</h3>
+              <p>
+                Dynamic generation of layer hierarchies from raw ONNX or PyTorch
+                model files.
+              </p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="material-symbols-outlined feature-icon"
+              >monitoring</span
+            >
+            <div>
+              <h3 class="uppercase tracking-tight">Weight Analysis</h3>
+              <p>
+                Heatmap visualization for detecting exploding or vanishing
+                gradients in real-time.
+              </p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="material-symbols-outlined feature-icon">terminal</span>
+            <div>
+              <h3 class="uppercase tracking-tight">CLI Integration</h3>
+              <p>
+                Seamless integration with existing MLOps pipelines through a
+                dedicated terminal client.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Sidebar: Technical Specs -->
+      <aside class="sidebar-col">
+        <div class="tech-sidebar">
+          <span class="sidebar-label uppercase tracking-widest"
+            >System Architecture</span
+          >
+          <ul class="tech-list">
+            <li class="tech-item">
+              <span class="tech-item-label uppercase tracking-widest"
+                >Frontend Engine</span
+              >
+              <span class="tech-item-value">Rust + WASM</span>
+            </li>
+            <li class="tech-item">
+              <span class="tech-item-label uppercase tracking-widest"
+                >Graphics Layer</span
+              >
+              <span class="tech-item-value">WebGL 2.0 / Three.js</span>
+            </li>
+            <li class="tech-item">
+              <span class="tech-item-label uppercase tracking-widest"
+                >State Orchestration</span
+              >
+              <span class="tech-item-value">Redux + Immer</span>
+            </li>
+            <li class="tech-item">
+              <span class="tech-item-label uppercase tracking-widest"
+                >Data Ingestion</span
+              >
+              <span class="tech-item-value">gRPC / Protocol Buffers</span>
+            </li>
+            <li class="tech-item">
+              <span class="tech-item-label uppercase tracking-widest"
+                >Styling Engine</span
+              >
+              <span class="tech-item-value">Tailwind CSS (Custom JIT)</span>
+            </li>
+          </ul>
+        </div>
+        <div class="meta-section">
+          <div class="meta-group">
+            <span class="meta-label uppercase tracking-widest"
+              >Development Timeline</span
+            >
+            <p class="meta-value tracking-tighter uppercase">
+              Q3 2023 — Q1 2024
+            </p>
+          </div>
+          <div class="meta-group">
+            <span class="meta-label uppercase tracking-widest">Core Focus</span>
+            <div class="tag-container font-headline">
+              <span class="tag uppercase tracking-wider">Performance</span>
+              <span class="tag uppercase tracking-wider">Visualization</span>
+              <span class="tag uppercase tracking-wider">MLOps</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Bottom Navigation -->
+
+    <nav class="project-nav">
+      <a class="nav-item previous" href="#">
+        <div class="nav-item-meta uppercase tracking-widest">
+          <span class="material-symbols-outlined" style="font-size: 14px"
+            >arrow_back</span
+          >
+          Previous Project
+        </div>
+        <span class="nav-item-title uppercase tracking-tighter"
+          >Cyber_Vault_OS</span
         >
-        Previous Project
-      </div>
-      <span class="nav-item-title uppercase tracking-tighter"
-        >Cyber_Vault_OS</span
-      >
-    </a>
-    <div class="nav-divider"></div>
-    <a class="nav-item next" href="#">
-      <div class="nav-item-meta uppercase tracking-widest">
-        Next Project
-        <span class="material-symbols-outlined" style="font-size: 14px"
-          >arrow_forward</span
+      </a>
+      <div class="nav-divider"></div>
+      <a class="nav-item next" href="#">
+        <div class="nav-item-meta uppercase tracking-widest">
+          Next Project
+          <span class="material-symbols-outlined" style="font-size: 14px"
+            >arrow_forward</span
+          >
+        </div>
+        <span class="nav-item-title uppercase tracking-tighter"
+          >Synth_Wave_API</span
         >
-      </div>
-      <span class="nav-item-title uppercase tracking-tighter"
-        >Synth_Wave_API</span
-      >
-    </a>
-  </nav>
-</NewLayout>
+      </a>
+    </nav>
+  </article>
+</Layout>
 
 <style>
-  :global(main) {
+  /* :global(main) {
     margin: 0 auto;
     max-width: 85rem;
     padding: 4rem 2rem 0;
-  }
+  } */
 
   h1,
   h2,

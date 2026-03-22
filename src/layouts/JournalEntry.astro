@@ -1,0 +1,95 @@
+---
+import Article from "@/components/blog/Article.astro";
+import Related from "@/components/blog/Related.astro";
+import Footer from "@/components/navigation/Footer.astro";
+import Header from "@/components/navigation/Header.astro";
+import "@/styles/main.scss";
+
+interface BlogLayoutProps {
+  frontmatter?: {
+    date?: string;
+    subject?: string;
+    readTime?: string;
+    title?: string;
+    description?: string;
+    imageUrl?: string;
+    imageAlt?: string;
+
+    slug?: string;
+    author?: string;
+    categories?: string[];
+    tags?: string[];
+    headerImage?: string;
+  };
+}
+
+const { frontmatter } = Astro.props as BlogLayoutProps;
+
+const title = frontmatter?.title ?? "";
+const description = frontmatter?.description ?? "";
+
+const current =
+  typeof Astro.request !== "undefined"
+    ? new URL(Astro.request.url).pathname
+    : "/";
+
+const date = frontmatter?.date
+  ? new Date(frontmatter.date).toLocaleDateString("es-ES", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  : "Unknown Date";
+
+const slug = frontmatter?.slug ?? "unknown-slug";
+const author = frontmatter?.author ?? "Unknown Author";
+const categories = frontmatter?.categories ?? [];
+const tags = frontmatter?.tags ?? [];
+const headerImage = frontmatter?.headerImage ?? "";
+const imageUrl = frontmatter?.imageUrl ?? "";
+const imageAlt = frontmatter?.imageAlt ?? "";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header current={current} />
+    <main>
+      <Article
+        date={date}
+        subject={frontmatter?.subject}
+        readTime={frontmatter?.readTime}
+        title={title}
+        imageUrl={imageUrl}
+        imageAlt={imageAlt}
+      >
+        <slot />
+      </Article>
+    </main>
+    <Related />
+    <Footer />
+  </body>
+</html>
+
+<style>
+  /* Blog Layout */
+  main {
+    margin: 5rem auto;
+    max-width: var(--max-width);
+    padding: 0 2rem;
+  }
+</style>
