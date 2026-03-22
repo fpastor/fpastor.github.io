@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/Blog.astro"
+layout: "../../layouts/JournalEntry.astro"
 title: "Wii Zapper + Link's Crossbow Training"
 date: "2008-02-13 20:08:18"
 slug: "wii-zapper-links-crossbow-training"
@@ -16,9 +16,9 @@ tags:
     "Zapper",
     "Zelda",
   ]
+imageUrl: "/blog/link.jpg"
+imageAlt: "Link's Crossbow Training"
 ---
-
-<img class="aligncenter size-full wp-image-184" alt="Link's Crossbow Training" src="/blog/link.jpg" width="525" height="295" />
 
 La verdad es que me lo pillé hace ya tiempo... ¡creo que el día que salio a la venta! Y he ido dejando de lado este post que tenia pensado escribir. Pero como tenia la imagen preparada (y esta muy chula) pues lo publico.
 

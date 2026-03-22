@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/Blog.astro"
+layout: "../../layouts/JournalEntry.astro"
 title: "Square distribuirá Persona 4 y Disgaea 3 en europa"
 date: "2008-12-10 14:53:28"
 slug: "square-distribuira-persona-4-y-disgaea-3-en-europa"
@@ -15,4 +15,4 @@ En Playstation 2 llegará Persona 4 en primavera de 2009. En Playstation 3 podre
 
 Es admirable que nos traigan estos juegos, y aunque personalmente estoy seguro que todos llegarán en perfecto inglés espero que los aficionados lo apoyen y compren estas ediciones europeas.
 
-Vía: <span class="broken-link">http://www.britishgaming.co.uk/</span>
+Vía: http://www.britishgaming.co.uk/

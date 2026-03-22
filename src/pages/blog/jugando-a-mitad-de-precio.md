@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/Blog.astro"
+layout: "../../layouts/JournalEntry.astro"
 title: "Jugando a mitad de precio"
 date: "2008-11-22 18:27:32"
 slug: "jugando-a-mitad-de-precio"

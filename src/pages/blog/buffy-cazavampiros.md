@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/Blog.astro"
+layout: "../../layouts/JournalEntry.astro"
 title: "Buffy Cazavampiros"
 date: "2008-07-18 14:02:31"
 slug: "buffy-cazavampiros"
@@ -8,7 +8,7 @@ categories: ["General"]
 tags: ["Buffy", "Cazavampiros", "Joss Whedon", "Serie", "TV", "Vampire Slayer"]
 ---
 
-<img class="aligncenter" src="/blog/buffy_logo.gif" alt="" width="400" height="250" />
+![Buffy Cazavampiros](/blog/buffy_logo.gif)
 
 Ya he terminado de ver Buffy Cazavampiros, las siete temporadas. Empecé a verla hace como un año (o quizá, un poco mas). Vi las tres primeras casi del tirón, las que suceden en el instituto.
 
