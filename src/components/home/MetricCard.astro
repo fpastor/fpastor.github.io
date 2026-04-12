@@ -22,7 +22,7 @@ const { label, value, description } = Astro.props as Props;
 
     & h3 {
       font-family: var(--font-headline);
-      font-size: 3.75rem;
+      font-size: clamp(2.5rem, 8vw, 3.5rem);
       font-weight: 700;
       letter-spacing: -0.05em;
       margin: 1rem 0 0.5rem;
