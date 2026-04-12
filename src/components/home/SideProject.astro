@@ -1,17 +1,19 @@
 ---
-interface SideProjectProps {
+export interface SideProjectProps {
   title: string;
+  url?: string;
   imageUrl: string;
   imageAlt: string;
   meta: string;
 }
 
-const { title, imageUrl, imageAlt, meta } = Astro.props as SideProjectProps;
+const { title, url, imageUrl, imageAlt, meta } =
+  Astro.props as SideProjectProps;
 ---
 
 <div class="side-project">
   <div class="side-image">
-    <img alt={imageAlt} src={imageUrl} />
+    <a {...url ? { href: url } : {}}><img alt={imageAlt} src={imageUrl} /></a>
   </div>
   <h4>{title}</h4>
   <p class="meta">{meta}</p>
@@ -20,7 +22,6 @@ const { title, imageUrl, imageAlt, meta } = Astro.props as SideProjectProps;
 <style>
   .side-project {
     border-bottom: 1px solid rgb(171 173 174 / 15%);
-    cursor: pointer;
     padding-bottom: 2rem;
 
     & .side-image {

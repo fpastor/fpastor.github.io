@@ -1,19 +1,21 @@
 ---
-interface MainProjectProps {
+export interface MainProjectProps {
   title: string;
+  url?: string;
   description: string;
+  meta?: string;
   imageUrl: string;
   imageAlt: string;
   tags: string[];
 }
 
-const { title, description, imageUrl, imageAlt, tags } =
+const { title, url, description, meta, imageUrl, imageAlt, tags } =
   Astro.props as MainProjectProps;
 ---
 
 <div class="main-project">
   <div class="project-image-wrapper">
-    <img alt={imageAlt} src={imageUrl} />
+    <a {...url ? { href: url } : {}}><img alt={imageAlt} src={imageUrl} /></a>
     <div class="overlay-tags">
       {tags.map((tag) => <span>{tag}</span>)}
     </div>
@@ -21,7 +23,8 @@ const { title, description, imageUrl, imageAlt, tags } =
   <div class="project-info">
     <div>
       <h3>{title}</h3>
-      <p>{description}</p>
+      <p class="meta">{meta}</p>
+      <p class="description">{description}</p>
     </div>
     <span class="material-symbols-outlined arrow-icon">arrow_outward</span>
   </div>
@@ -88,6 +91,20 @@ const { title, description, imageUrl, imageAlt, tags } =
       color: var(--outline-variant);
       font-size: 2.25rem;
       transition: color 0.3s;
+    }
+
+    & .meta {
+      color: var(--outline);
+      font-family: var(--font-headline);
+      font-size: 0.7rem;
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    & .description {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      margin-top: 0.5rem;
     }
 
     &:hover {

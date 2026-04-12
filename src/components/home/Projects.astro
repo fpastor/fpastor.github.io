@@ -1,31 +1,34 @@
 ---
+import type { MainProjectProps } from "./MainProject.astro";
 import MainProject from "./MainProject.astro";
+import type { SideProjectProps } from "./SideProject.astro";
 import SideProject from "./SideProject.astro";
 
-const projects = {
+const projects: {
+  mainProject: MainProjectProps;
+  sideProjects: SideProjectProps[];
+} = {
   mainProject: {
-    title: "NEURAL_NET DASHBOARD",
+    title: "Full Stack Web Developer",
     description:
-      "Real-time threat detection interface built with React, Three.js, and high-performance WebGL shaders.",
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBwVu9wycIn7nrtyLs0JD4gyMQzyCLSWsTaFXDlV8csIGmwWR1wNEBBXBvKZRIEoIKplYbVTlCY1IRGdtFCmwdc8Su1jISkjVuBrxeP9uRTnUVY7p-cfymnihTCQTfWbEFMFZnDo8_X3LjWoxcXrGAQhBKdtz031Tmb8L9IKvb5U2eF-3BmCeJYA0z-wn3BBZUWPHjacVoSuOOur-0IQY6I8e5RJ4E1eM9DR9aGjOJSZCu4z2vSpATBzRh67Gx9q1WDDcK0sEkx-y8",
-    imageAlt: "Neural Net Dashboard",
-    tags: ["Web3", "Security"],
+      "Working as a web developer, I am responsible for designing and fully implementing user-friendly components. My role involves developing back-end APIs and integrating them with front-end interfaces to create seamless user experiences. I also collaborate closely with embedded firmware teams to ensure that the applications I develop are robust and efficient.",
+    meta: "September 2022 - Present",
+    imageUrl: "skyflare.jpg",
+    imageAlt: "Web Developer",
+    tags: ["Flutter", "Mobile App"],
   },
   sideProjects: [
     {
-      title: "OS_KNOT COMPONENT LIB",
-      imageUrl:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDuUGRwJ6oFNgDv59QsDPLGstcSht_3ArmwEAjVRK1lEegIhm1u3pFORVQHqPfNyNT0gHIBl6wMQ6yaxFi15fdz_8hjJnEPX4RwamDuC9lqKICWG2Qv9kUIlczRApTVxib4W34yHX0RbdIKKoo_pWVrp-gWNKAFYDwqqYUivHGu1rQywSgz4YwfDXrUDznQELRA7NLSUkhnpGM-jixGrj7vlZ8v-YgsqZ2njbm4-Z8DB0JmzC2xkJmkuzIMAHB14vOyOwoX11IUVK0",
-      imageAlt: "Code Snippets",
-      meta: "NPM Package // 45k Weekly Downloads",
+      title: "Design Lead and Digital Marketer",
+      imageUrl: "natural-fruit.jpg",
+      imageAlt: "Design Lead and Digital Marketer",
+      meta: "January 2017 - September 2022",
     },
     {
-      title: "SYNTH_CORE INFRA",
-      imageUrl:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuBLur2r7UZI_6fgTt1o3_LwjCunSupIJKaQxojoI2WsAkaKlgGHudoD098oD4e7V7fkeXW34fuFLJI8kwmsgXyqBv51f_x8vJ_MyRhad-aqzGW7FckoXozZCozIvBv_Kj53qUP5xmwwZ_T7LkImyvJ-QIxMDskll0TBUyvGRzOxG5nlpMflJCfJ3hevr2lT_PxsQh3Lm_v0u6Cd-21v_RjVFW_yjtmLi3oMub812gj27XS7TSF2DqXekn7dFaiN_T_fn4jkwwdNF50",
-      imageAlt: "Data Center",
-      meta: "Infrastructure as Code // Terraform",
+      title: "Senior Graphic Designer",
+      imageUrl: "kubernetes.jpg",
+      imageAlt: "Senior Graphic Designer",
+      meta: "February 2001 - March 2017",
     },
   ],
 };
@@ -34,17 +37,19 @@ const projects = {
 <section class="container projects-section">
   <div class="section-header">
     <div>
-      <span class="tag">SELECTED_ARCHIVES</span>
-      <h2>Core Projects</h2>
+      <span class="tag">WORK_EXPERIENCE</span>
+      <h2>Core</h2>
     </div>
     <div class="header-meta">
-      Sorted by Intensity<br />Updated: 2024.05
+      Sorted by Intensity<br />Updated: 2026.04
     </div>
   </div>
   <div class="projects-layout">
     <MainProject
       title={projects.mainProject.title}
+      url={projects.mainProject.url}
       description={projects.mainProject.description}
+      meta={projects.mainProject.meta}
       imageUrl={projects.mainProject.imageUrl}
       imageAlt={projects.mainProject.imageAlt}
       tags={projects.mainProject.tags}
@@ -54,6 +59,7 @@ const projects = {
         projects.sideProjects.map((project) => (
           <SideProject
             title={project.title}
+            url={project.url}
             imageUrl={project.imageUrl}
             imageAlt={project.imageAlt}
             meta={project.meta}

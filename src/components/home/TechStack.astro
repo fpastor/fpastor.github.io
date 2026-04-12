@@ -2,19 +2,25 @@
 import TechItem from "./TechItem.astro";
 
 const techStack = [
-  { name: "TypeScript", icon: "terminal" },
-  { name: "Next.js", icon: "data_object" },
-  { name: "PostgreSQL", icon: "storage" },
-  { name: "AWS / CDK", icon: "cloud" },
+  { name: "TypeScript", icon: "code_blocks" },
+  { name: "Node.js", icon: "memory" },
+  { name: "NestJS", icon: "data_array" },
+  { name: "MikroORM", icon: "database" },
+  { name: "PostgreSQL", icon: "database" },
+  { name: "Svelte", icon: "bookmark_heart" },
+  { name: "UI/UX", icon: "design_services" },
+  { name: "Figma", icon: "design_services" },
   { name: "Docker", icon: "deployed_code" },
-  { name: "Rust/WASM", icon: "polyline" },
+  { name: "Git", icon: "difference" },
+  { name: "Astro", icon: "planet" },
+  { name: "Flutter", icon: "adb" },
 ];
 ---
 
 <!-- Tech Stack Section -->
 <section class="tech-section">
   <div class="container">
-    <span class="tag-status">Capabilities_Matrix</span>
+    <span class="tag-status">Tech Stack</span>
     <div class="tech-grid">
       {techStack.map((tech) => <TechItem name={tech.name} icon={tech.icon} />)}
     </div>
@@ -45,7 +51,7 @@ const techStack = [
       }
 
       @media (width >= 768px) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       @media (width >= 1024px) {

@@ -1,33 +1,41 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-const modules = import.meta.glob('./blog/*.md', { eager: true });
+const modules = import.meta.glob("./blog/*.md", { eager: true });
 
-const posts = Object.entries(modules).map(([path, mod]) => {
-  const slug = path.replace('./blog/', '').replace('.md', '');
-  return {
-    slug,
-    title: mod.frontmatter?.title ?? slug,
-    date: mod.frontmatter?.date ?? null,
-  };
-}).sort((a, b) => {
-  if (!a.date && !b.date) return 0;
-  if (!a.date) return 1;
-  if (!b.date) return -1;
-  return new Date(b.date) - new Date(a.date);
-});
+const posts = Object.entries(modules)
+  .map(([path, mod]: [string, any]) => {
+    const slug = path.replace("./blog/", "").replace(".md", "");
+    return {
+      slug,
+      title: mod.frontmatter?.title ?? slug,
+      date: mod.frontmatter?.date ?? null,
+    };
+  })
+  .sort((a, b) => {
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return (
+      new Date(b.date as string).getTime() -
+      new Date(a.date as string).getTime()
+    );
+  });
 ---
 
-<Layout
-  title="fernandopastor.dev | Blog"
-  description="Explora mis pensamientos, experiencias y conocimientos sobre el desarrollo de software a través de mi blog. Aquí comparto artículos, tutoriales y reflexiones sobre las últimas tendencias en tecnología y programación."
->
-  <h1>Artículos</h1>
+<Layout title="fernandopastor.dev | Blog" description="Blog">
+  <h1>Blog</h1>
   <ul>
-    {posts.map(post => (
-      <li>
-        <a href={`/blog/${post.slug}`}>{post.title}</a>
-      </li>
-    ))}
+    {
+      posts.map((post) => {
+        let year = post.date ? new Date(post.date).getFullYear() : "Sin fecha";
+        return (
+          <li>
+            <a href={`/blog/${post.slug}`}>
+              {year} - {post.title}
+            </a>
+          </li>
+        );
+      })
+    }
   </ul>
-
 </Layout>
