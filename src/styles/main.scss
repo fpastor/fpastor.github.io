@@ -1,0 +1,7 @@
+/* Main SCSS entry: import partials in order
+   - variables: central tokens
+   - base: resets and global utilities
+*/
+
+@import url("./_variables.scss");
+@import url("./_base.scss");

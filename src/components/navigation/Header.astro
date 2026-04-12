@@ -1,0 +1,99 @@
+---
+const { current = "" } = Astro.props;
+---
+
+<header>
+  <nav>
+    <div class="logo">fernandopastor.dev</div>
+    <div class="nav-links">
+      <a href="/" class={current === "/" ? "active" : ""}>Home</a>
+      <!-- <a href="/projects" class={current === "/projects" ? "active" : ""}>Projects</a> -->
+      <!-- <a href="/blog" class={current === "/blog" ? "active" : ""}>Blog</a> -->
+      <!-- <a href="/about" class={current === "/about" ? "active" : ""}>About</a> -->
+    </div>
+    <button
+      onclick="window.location.href='mailto:fer@fernandopastor.dev'"
+      class="hire-btn">Contact</button
+    >
+  </nav>
+</header>
+
+<style>
+  header {
+    backdrop-filter: blur(20px);
+    background: rgb(245 246 247 / 80%);
+    border-bottom: 1px solid rgb(171 173 174 / 15%);
+    box-shadow: 0 16px 40px rgb(44 47 48 / 4%);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    nav {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: var(--max-width);
+      padding: 1rem 2rem;
+
+      .logo {
+        font-family: var(--font-headline);
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+      }
+
+      .nav-links {
+        @media (width >= 768px) {
+          display: flex;
+        }
+
+        @media (width < 768px) {
+          display: none;
+        }
+
+        align-items: center;
+        gap: 2rem;
+
+        a {
+          color: var(--on-surface-variant);
+          font-family: var(--font-headline);
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-decoration: none;
+          text-transform: uppercase;
+          transition: color 0.2s;
+
+          &:hover {
+            color: var(--primary);
+          }
+
+          &.active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+            padding-bottom: 0.25rem;
+          }
+        }
+      }
+
+      .hire-btn {
+        background: var(--primary);
+        border: none;
+        color: var(--on-primary);
+        cursor: pointer;
+        font-family: var(--font-headline);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        padding: 0.5rem 1.5rem;
+        text-transform: uppercase;
+        transition: transform 0.2s;
+      }
+
+      .hire-btn:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+</style>

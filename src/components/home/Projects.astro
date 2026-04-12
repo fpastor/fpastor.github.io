@@ -1,0 +1,146 @@
+---
+import type { MainProjectProps } from "./MainProject.astro";
+import MainProject from "./MainProject.astro";
+import type { SideProjectProps } from "./SideProject.astro";
+import SideProject from "./SideProject.astro";
+
+const projects: {
+  mainProject: MainProjectProps;
+  sideProjects: SideProjectProps[];
+} = {
+  mainProject: {
+    title: "Full Stack Web Developer",
+    description:
+      "Working as a web developer, I am responsible for designing and fully implementing user-friendly components. My role involves developing back-end APIs and integrating them with front-end interfaces to create seamless user experiences. I also collaborate closely with embedded firmware teams to ensure that the applications I develop are robust and efficient.",
+    meta: "September 2022 - Present",
+    imageUrl: "skyflare.jpg",
+    imageAlt: "Web Developer",
+    tags: ["Flutter", "Mobile App"],
+  },
+  sideProjects: [
+    {
+      title: "Design Lead and Digital Marketer",
+      imageUrl: "natural-fruit.jpg",
+      imageAlt: "Design Lead and Digital Marketer",
+      meta: "January 2017 - September 2022",
+    },
+    {
+      title: "Senior Graphic Designer",
+      imageUrl: "kubernetes.jpg",
+      imageAlt: "Senior Graphic Designer",
+      meta: "February 2001 - March 2017",
+    },
+  ],
+};
+---
+
+<section class="container projects-section">
+  <div class="section-header">
+    <div>
+      <span class="tag">WORK_EXPERIENCE</span>
+      <h2>Core</h2>
+    </div>
+    <div class="header-meta">
+      Sorted by Intensity<br />Updated: 2026.04
+    </div>
+  </div>
+  <div class="projects-layout">
+    <MainProject
+      title={projects.mainProject.title}
+      url={projects.mainProject.url}
+      description={projects.mainProject.description}
+      meta={projects.mainProject.meta}
+      imageUrl={projects.mainProject.imageUrl}
+      imageAlt={projects.mainProject.imageAlt}
+      tags={projects.mainProject.tags}
+    />
+    <div class="side-projects">
+      {
+        projects.sideProjects.map((project) => (
+          <SideProject
+            title={project.title}
+            url={project.url}
+            imageUrl={project.imageUrl}
+            imageAlt={project.imageAlt}
+            meta={project.meta}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding: 8rem 0;
+
+    & .section-header {
+      align-items: flex-end;
+      border-bottom: 1px solid rgb(171 173 174 / 15%);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5rem;
+      padding-bottom: 2rem;
+
+      & .tag {
+        color: var(--primary);
+        font-family: var(--font-headline);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      & h2 {
+        font-family: var(--font-headline);
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+      }
+
+      & .header-meta {
+        @media (width < 768px) {
+          display: none;
+        }
+
+        @media (width >= 768px) {
+          display: block;
+        }
+
+        color: var(--outline);
+        font-family: var(--font-headline);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-align: right;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .projects-layout {
+    @media (width >= 1024px) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @media (width < 1024px) {
+      grid-template-columns: 1fr;
+    }
+
+    display: grid;
+    gap: 3rem;
+  }
+
+  .side-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    grid-column: span 12;
+  }
+
+  @media (width >= 1024px) {
+    .side-projects {
+      grid-column: span 4;
+    }
+  }
+</style>

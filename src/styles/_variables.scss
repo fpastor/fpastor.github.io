@@ -1,0 +1,20 @@
+/* Extracted from synthetix.scss :root — centralize CSS variables here */
+:root {
+  --primary: #2829fb;
+  --on-primary: #e6e5ff;
+  --secondary: #056b00;
+  --on-secondary: #d3ffc2;
+  --background: #f5f6f7;
+  --on-background: #2c2f30;
+  --surface: #f5f6f7;
+  --surface-container: #e6e8ea;
+  --surface-container-low: #eff1f2;
+  --surface-container-highest: #dadddf;
+  --on-surface: #2c2f30;
+  --on-surface-variant: #595c5d;
+  --outline: #757778;
+  --outline-variant: #abadae;
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --max-width: 1440px;
+}

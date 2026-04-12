@@ -1,0 +1,100 @@
+---
+import RelatedCard from "./RelatedCard.astro";
+
+const cards = [
+  {
+    title: "Another Code R",
+    category: "GAMING",
+    imgSrc: "/blog/another-code-r.jpg",
+    imgAlt: "Another Code R",
+  },
+  {
+    title: "Jeanne d'Arc",
+    category: "GAMING",
+    imgSrc: "/blog/jeanne-darc-banner.avif",
+    imgAlt: "Jeanne d'Arc",
+  },
+  {
+    title: "Square distribuirá Persona 4 y Disgaea 3 en europa",
+    category: "MOVIES",
+    imgSrc: "/blog/persona-4.jpg",
+    imgAlt: "Square distribuirá Persona 4 y Disgaea 3 en europa",
+  },
+];
+---
+
+<section class="container related-section">
+  <div class="section-header">
+    <h3>CONTINUE_JOURNEY</h3>
+    <a class="browse-link" href="#">Browse_All_Archive</a>
+  </div>
+
+  <div class="related-grid">
+    {
+      cards.map((card) => (
+        <RelatedCard
+          title={card.title}
+          category={card.category}
+          imgSrc={card.imgSrc}
+          imgAlt={card.imgAlt}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  /* Related Content */
+  .related-section {
+    margin-top: 10rem;
+  }
+
+  .section-header {
+    align-items: flex-end;
+    border-bottom: 1px solid rgb(171 173 174 / 15%);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .section-header h3 {
+    font-family: var(--font-headline);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .browse-link {
+    color: var(--primary);
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .browse-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+  }
+
+  .related-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (width >= 768px) {
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width >= 1024px) {
+    .related-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

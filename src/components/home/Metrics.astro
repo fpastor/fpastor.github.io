@@ -1,0 +1,60 @@
+---
+import MetricCard from "./MetricCard.astro";
+
+const metrics = [
+  {
+    label: "01 // EXPERIENCE",
+    value: "+20 YRS",
+    description:
+      "Over two decades of designing and crafting software solutions and strategies.",
+  },
+  {
+    label: "02 // THROUGHPUT",
+    value: "+100",
+    description:
+      "From small projects to large enterprises, across various industries and domains.",
+  },
+  {
+    label: "03 // UP-TIME",
+    value: "99.9%",
+    description:
+      "Focus on reliability and performance, ensuring streamlined and smooth applications.",
+  },
+];
+---
+
+<section class="metrics-section">
+  <div class="metrics-grid">
+    {
+      metrics.map((metric) => (
+        <MetricCard
+          label={metric.label}
+          value={metric.value}
+          description={metric.description}
+        />
+      ))
+    }
+  </div>
+</section>
+<style>
+  .metrics-section {
+    background: var(--surface-container-low);
+    padding: 6rem 2rem;
+
+    .metrics-grid {
+      @media (width < 768px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      @media (width >= 768px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      background: rgb(171 173 174 / 15%);
+      display: grid;
+      gap: 1px;
+      margin: 0 auto;
+      max-width: var(--max-width);
+    }
+  }
+</style>

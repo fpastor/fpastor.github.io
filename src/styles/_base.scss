@@ -1,0 +1,46 @@
+/* Base/global styles extracted from synthetix.scss */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-attachment: fixed;
+  background-color: var(--background);
+  background-image: radial-gradient(var(--outline-variant) 1px, transparent 0);
+  background-size: 40px 40px;
+  color: var(--on-background);
+  cursor: crosshair;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgb(171 173 174 / 10%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(171 173 174 / 10%) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--on-surface);
+  transition: all 1s ease;
+}
+
+.text-stroke:hover {
+  color: var(--on-surface);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 0 2rem;
+}

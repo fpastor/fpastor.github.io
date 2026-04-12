@@ -1,84 +1,61 @@
 ---
-import "@fontsource-variable/onest";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Footer from "@/components/navigation/Footer.astro";
+import Header from "@/components/navigation/Header.astro";
+import "@/styles/main.scss";
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
+  frontmatter?: {
+    title?: string;
+    description?: string;
+  };
 }
 
-const { title, description } = Astro.props;
+const {
+  title: propTitle,
+  description: propDescription,
+  frontmatter,
+} = Astro.props as Props;
+
+const title = propTitle ?? frontmatter?.title ?? "Default Title";
+const description =
+  propDescription ?? frontmatter?.description ?? "Default Description";
+const current =
+  typeof Astro.request !== "undefined"
+    ? new URL(Astro.request.url).pathname
+    : "/";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <script is:inline>
-      // Aplicar tema inmediatamente para evitar flash
-      const getTheme = () => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        return "system";
-      };
-
-      const theme = getTheme();
-      const isDark =
-        theme === "dark" ||
-        (theme === "system" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-      if (isDark) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body
-    class="text-black bg-white
-    bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]
-    bg-size-[16px_16px]
-    dark:text-white dark:bg-black
-    dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)]
-    dark:bg-size-[20px_20px]
-    bg-fixed"
-  >
-    <Header />
-    <slot />
+  <body>
+    <Header current={current} />
+    <main class="container">
+      <slot />
+    </main>
     <Footer />
   </body>
-
-  <style is:global>
-    :root {
-    }
-
-    html {
-      font-family: "Onest Variable", sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      /* justify-content: center; */
-      min-height: 100vh;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-    }
-  </style>
 </html>
+
+<style>
+  main {
+    margin: 0 auto;
+    max-width: var(--max-width);
+    padding: 0 2rem;
+  }
+</style>

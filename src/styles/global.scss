@@ -1,0 +1,345 @@
+@import url("./variables.css");
+
+// SCSS helpers
+$bp-desktop: 1024px;
+$bp-tablet: 900px;
+
+:root {
+  /* compatibility aliases to match older variable names used across components */
+  --max-width: var(--max-content-width);
+  --radius: var(--radius-sm);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-family: var(--ui-sans);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 400;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-feature-settings: "liga" 1;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Utility container */
+.container {
+  @media (min-width: $bp-desktop) {
+    //max-width: var(--max-content-width);
+    //padding-left: 2rem;
+    //padding-right: 2rem;
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+  //max-width: var(--max-width);
+  //padding-left: 1rem;
+  //padding-right: 1rem;
+  width: 100%;
+}
+
+/* Headings & type scale */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  @media (min-width: $bp-desktop) {
+    font-size: 3rem;
+  }
+
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+/* Links and buttons */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  --card-bg: #0d1016;
+  --card-text: #e6eef6;
+  --card-border: rgb(255 255 255 / 3%);
+
+  background: var(--accent);
+  border-radius: 8px;
+  color: #fff;
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  text-decoration: none;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid rgb(37 99 235 / 12%);
+  color: var(--accent);
+}
+
+/* Header / nav */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+header nav {
+  @media (min-width: $bp-desktop) {
+    gap: 1.25rem;
+    padding: 0.6rem 1.25rem;
+  }
+
+  align-items: center;
+  backdrop-filter: blur(6px);
+  background: var(--glass);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 10px rgb(2 6 23 / 6%);
+  display: flex;
+  gap: 1rem;
+  margin: 0.6rem 0;
+  padding: 0.5rem 1rem;
+}
+
+.dark header nav {
+  background: var(--glass-dark);
+}
+
+/* Main layout pieces */
+main {
+  padding: 2rem 0;
+}
+
+footer {
+  color: var(--muted);
+  font-size: 0.95rem;
+  padding: 2rem 0;
+}
+
+/* Card pattern */
+.card {
+  background: linear-gradient(180deg, #fff, #f8fafc);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgb(2 6 23 / 6%);
+  padding: 1rem;
+}
+
+/* Projects, lists, experience */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Code and preformatted */
+pre,
+code {
+  background: #0f172a;
+  border-radius: 6px;
+  color: #e6eef6;
+  font-family: var(--mono);
+  padding: 0.2rem 0.4rem;
+}
+
+pre {
+  overflow: auto;
+  padding: 1rem;
+}
+
+/* Images and avatars */
+img {
+  border-radius: 8px;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Small helpers */
+.muted {
+  color: var(--muted);
+}
+
+.caps {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  border: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Spacing sections */
+.section {
+  padding: 4rem 0;
+}
+
+.section.sm {
+  padding: 2rem 0;
+}
+
+.pattern-bg {
+  background-color: var(--pattern-bg-color);
+  background-image: radial-gradient(var(--pattern-dot) 1px, transparent 1px);
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: 20px 20px;
+  height: 100vh;
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  width: 100vw;
+  z-index: -2;
+}
+
+.dark .pattern-bg {
+  --pattern-bg-color: #000;
+  --pattern-dot: rgb(255 255 255 / 18%);
+
+  background-color: var(--pattern-bg-color);
+  background-image: radial-gradient(var(--pattern-dot) 1px, #00091d 1px);
+}
+
+/* Responsive tweaks (fixed invalid query from previous file) */
+@media (width <= 900px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .grid.cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  header nav {
+    padding: 0.6rem;
+  }
+}
+
+.dark body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.dark .card {
+  background: linear-gradient(180deg, #071024, #081229);
+}
+
+/* Tiny form controls */
+input,
+textarea,
+select {
+  border: 1px solid rgb(2 6 23 / 6%);
+  border-radius: 8px;
+  font: inherit;
+  padding: 0.5rem;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+:focus {
+  outline: 3px solid rgb(37 99 235 / 15%);
+  outline-offset: 2px;
+}
+
+/* Utilities */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+.site-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.social-pill {
+  align-items: center;
+  background: rgb(2 6 23 / 4%);
+  border-radius: 9999px;
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 0.35rem 0.6rem;
+}
+
+/* Desktop specific tweaks */
+@media (min-width: $bp-desktop) {
+  .grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main {
+    padding: 3rem 0;
+  }
+}
+
+/* End of global base */

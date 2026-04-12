@@ -1,0 +1,84 @@
+---
+const cta = {
+  title: "BUILD_BETTER",
+  description:
+    "If you want to say hello, you can reach out to me anytime just by clicking the button below.",
+  buttonText: "Contact",
+  buttonLink: "mailto:fer@fernandopastor.dev",
+};
+---
+
+<section class="container cta-section">
+  <h2 class="text-stroke">{cta.title}</h2>
+  <div class="cta-content">
+    <p>
+      {cta.description}
+    </p>
+    <a class="cta-button" href={cta.buttonLink}>
+      {cta.buttonText}
+      <div class="shine"></div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: 8rem 2rem;
+    text-align: center;
+
+    h2 {
+      cursor: default;
+      font-family: var(--font-headline);
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+    }
+
+    .cta-content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      p {
+        color: var(--on-surface-variant);
+        font-size: 1.25rem;
+        max-width: 32rem;
+      }
+    }
+
+    .cta-button {
+      background: var(--primary);
+      color: var(--on-primary);
+      display: inline-block;
+      font-family: var(--font-headline);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      overflow: hidden;
+      padding: 1.25rem 3rem;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 0.2s;
+
+      .shine {
+        background: rgb(255 255 255 / 20%);
+        inset: 0;
+        position: absolute;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+
+        .shine {
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
+</style>
