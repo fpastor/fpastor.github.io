@@ -40,7 +40,14 @@ body {
 }
 
 .container {
+  @media (width < 1024px) {
+    padding: 0;
+  }
+
+  @media (width >= 1024px) {
+    padding: 0 2rem;
+  }
+
   margin: 0 auto;
   max-width: var(--max-width);
-  padding: 0 2rem;
 }
