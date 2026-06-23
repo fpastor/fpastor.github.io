@@ -11,9 +11,9 @@
     "lint:css": "stylelint \"src/**/*.{css,scss,astro}\" --fix"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@fontsource-variable/onest": "^5.2.11",
-    "astro": "^6.0.6",
+    "astro": "^7.0.2",
     "stylelint-order": "^8.1.1",
     "typescript": "^5.9.3"
   },
