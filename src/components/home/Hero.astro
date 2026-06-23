@@ -70,20 +70,20 @@
         color: var(--secondary);
         display: inline-block;
         font-family: var(--font-label);
-        font-size: 0.75rem;
-        font-weight: 400;
-        letter-spacing: 0.1em;
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-medium);
+        letter-spacing: var(--letter-spacing-widest);
         margin-bottom: var(--space-xl);
         padding: var(--space-2xs) var(--space-sm);
         text-transform: uppercase;
       }
 
       & h1 {
-        font-size: clamp(3rem, 12vw, 10rem);
+        font-size: clamp(3rem, 13vw, 10rem);
         font-weight: var(--font-weight-black);
         letter-spacing: -0.05em;
-        line-height: 0.8;
-        margin-bottom: var(--space-3xl);
+        line-height: var(--leading-none);
+        margin-bottom: var(--space-xl);
 
         & span {
           color: var(--primary);
@@ -93,8 +93,8 @@
       & .hero-desc {
         border-left: 4px solid var(--primary);
         color: var(--on-surface-variant);
-        font-size: 1.25rem;
-        margin-bottom: var(--space-5xl);
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-2xl);
         max-width: var(--content-width-lg);
         padding-left: var(--space-lg);
       }
@@ -104,7 +104,7 @@
   .hero-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3xl);
+    gap: var(--space-2xl);
 
     & .meta-item {
       & label {

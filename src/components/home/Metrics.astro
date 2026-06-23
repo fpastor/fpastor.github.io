@@ -38,9 +38,17 @@ const metrics = [
 </section>
 <style>
   .metrics-section {
+    @media (width < 768px) {
+      border-radius: 0;
+      padding: var(--container-padding);
+    }
+
+    @media (width >= 768px) {
+      border-radius: var(--radius-lg);
+      padding: var(--space-5xl) var(--container-padding);
+    }
+
     background: var(--surface-container-low);
-    border-radius: var(--radius-lg);
-    padding: var(--space-5xl) var(--container-padding);
 
     .metrics-grid {
       @media (width < 768px) {

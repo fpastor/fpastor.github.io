@@ -16,16 +16,34 @@ const { label, value, description } = Astro.props as Props;
 
 <style>
   .metric-card {
+    @media (width < 1024px) {
+      padding: var(--space-xl) var(--space-xl);
+    }
+
+    @media (width >= 1024px) {
+      padding: var(--space-3xl);
+    }
+
     background: var(--surface);
-    padding: var(--space-3xl);
+    overflow: hidden;
     transition: all 0.5s ease;
+
+    & .label {
+      font-size: clamp(var(--font-size-sm), 3vw, var(--font-size-md));
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     & h3 {
       font-family: var(--font-headline);
-      font-size: clamp(2.5rem, 8vw, 3.5rem);
-      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 8rem);
+      font-weight: var(--font-weight-heavy);
       letter-spacing: -0.05em;
       margin: var(--space-md) 0 var(--space-xs);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     & p {

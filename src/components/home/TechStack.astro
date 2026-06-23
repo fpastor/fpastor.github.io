@@ -30,9 +30,17 @@ const techStack = [
 <style>
   /* Tech Stack */
   .tech-section {
+    @media (width < 768px) {
+      border-radius: 0;
+      padding: var(--container-padding);
+    }
+
+    @media (width >= 768px) {
+      border-radius: var(--radius-lg);
+      padding: var(--space-6xl) var(--container-padding);
+    }
+
     background: var(--surface-container);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6xl) var(--container-padding);
 
     .tag-status {
       color: var(--primary);

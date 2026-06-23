@@ -32,18 +32,25 @@ const { title, url, description, meta, imageUrl, imageAlt, tags } =
 
 <style>
   .main-project {
-    @media (width >= 1024px) {
+    @media (width >= 768px) {
       grid-column: span 8;
     }
 
-    @media (width < 1024px) {
+    @media (width < 768px) {
       grid-column: span 1;
     }
 
     .project-image-wrapper {
+      @media (width < 768px) {
+        border-radius: 0;
+      }
+
+      @media (width >= 768px) {
+        border-radius: var(--radius-lg);
+      }
+
       aspect-ratio: 16/9;
       background: var(--surface-container-highest);
-      border-radius: var(--radius-lg);
       margin-bottom: var(--space-lg);
       overflow: hidden;
       position: relative;
@@ -77,6 +84,14 @@ const { title, url, description, meta, imageUrl, imageAlt, tags } =
     }
 
     .project-info {
+      @media (width < 768px) {
+        padding: 0 var(--container-padding);
+      }
+
+      @media (width >= 768px) {
+        padding: 0;
+      }
+
       align-items: flex-start;
       display: flex;
       justify-content: space-between;
