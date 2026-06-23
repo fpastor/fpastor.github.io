@@ -1,0 +1,132 @@
+---
+export interface MainProjectProps {
+  title: string;
+  url?: string;
+  description: string;
+  meta?: string;
+  imageUrl: string;
+  imageAlt: string;
+  tags: string[];
+}
+
+const { title, url, description, meta, imageUrl, imageAlt, tags } =
+  Astro.props as MainProjectProps;
+---
+
+<div class="main-project">
+  <div class="project-image-wrapper">
+    <a {...url ? { href: url } : {}}><img alt={imageAlt} src={imageUrl} /></a>
+    <div class="overlay-tags">
+      {tags.map((tag) => <span>{tag}</span>)}
+    </div>
+  </div>
+  <div class="project-info">
+    <div>
+      <h3>{title}</h3>
+      <p class="meta">{meta}</p>
+      <p class="description">{description}</p>
+    </div>
+    <span class="material-symbols-outlined arrow-icon">arrow_outward</span>
+  </div>
+</div>
+
+<style>
+  .main-project {
+    @media (width >= 1024px) {
+      grid-column: span 8;
+    }
+
+    @media (width < 1024px) {
+      grid-column: span 1;
+    }
+
+    .project-image-wrapper {
+      aspect-ratio: 16/9;
+      background: var(--surface-container-highest);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-lg);
+      overflow: hidden;
+      position: relative;
+
+      & img {
+        filter: grayscale(1);
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.7s ease;
+        width: 100%;
+      }
+
+      .overlay-tags {
+        bottom: var(--space-lg);
+        display: flex;
+        gap: var(--space-xs);
+        left: var(--space-lg);
+        position: absolute;
+
+        & span {
+          background: var(--primary);
+          border-radius: var(--radius-xs);
+          color: var(--surface);
+          font-family: var(--font-label);
+          font-size: var(--font-size-2xs);
+          font-weight: var(--font-weight-normal);
+          padding: var(--space-2xs) var(--space-xs);
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .project-info {
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+
+      & h3 {
+        font-family: var(--font-headline);
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-heavy);
+        text-transform: uppercase;
+        transition: color 0.3s;
+      }
+    }
+
+    & .arrow-icon {
+      color: var(--outline-variant);
+      font-size: 2.25rem;
+      transition: color 0.3s;
+    }
+
+    & .meta {
+      color: var(--outline);
+      font-family: var(--font-label);
+      font-size: var(--font-size-xs);
+      letter-spacing: var(--letter-spacing-wide);
+      margin-bottom: var(--space-md);
+      text-transform: uppercase;
+    }
+
+    & .description {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      margin-top: var(--space-xs);
+    }
+
+    &:hover {
+      & img {
+        filter: grayscale(0);
+      }
+
+      & h3 {
+        color: var(--primary);
+      }
+
+      .project-info p {
+        color: var(--on-surface-variant);
+      }
+
+      .arrow-icon {
+        color: var(--primary);
+      }
+    }
+  }
+</style>

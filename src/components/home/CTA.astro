@@ -1,0 +1,84 @@
+---
+const cta = {
+  title: "BUILD BETTER",
+  description:
+    "If you want to say hello, you can reach out to me anytime just by clicking the button below.",
+  buttonText: "Contact",
+  buttonLink: "mailto:fer@fernandopastor.dev",
+};
+---
+
+<section class="container cta-section">
+  <h2 class="text-stroke">{cta.title}</h2>
+  <div class="cta-content">
+    <p>
+      {cta.description}
+    </p>
+    <a class="cta-button" href={cta.buttonLink}>
+      {cta.buttonText}
+      <div class="shine"></div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: var(--space-6xl) var(--container-padding);
+    text-align: center;
+
+    h2 {
+      cursor: default;
+      font-family: var(--font-headline);
+      font-size: clamp(2rem, 10vw, 8rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      margin-bottom: var(--space-3xl);
+      text-transform: uppercase;
+    }
+
+    .cta-content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+
+      p {
+        color: var(--on-surface-variant);
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        max-width: var(--content-width-sm);
+      }
+    }
+
+    .cta-button {
+      background: var(--primary);
+      border-radius: var(--radius-md);
+      color: var(--on-primary);
+      display: inline-block;
+      font-family: var(--font-headline);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      overflow: hidden;
+      padding: var(--space-md) var(--space-xl);
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 0.2s;
+
+      .shine {
+        background: var(--glass-light);
+        inset: 0;
+        position: absolute;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+
+        .shine {
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
+</style>

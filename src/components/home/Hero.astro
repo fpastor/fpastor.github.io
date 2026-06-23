@@ -1,0 +1,158 @@
+<section class="container hero">
+  <div class="hero-blueprint blueprint-grid"></div>
+  <div class="hero-content">
+    <span class="tag-status">INTENSIVE LEARNING</span>
+    <h1>DIGITAL<br /><span>CRAFTSMAN</span></h1>
+    <p class="hero-desc">
+      My name is Fernando Pastor, and I'm a seasoned professional with over 20
+      years of experience in graphic design, web development, and digital
+      marketing , specializing in marketing strategies.
+    </p>
+  </div>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <label>Base</label>
+      <p>ALICANTE, SPAIN</p>
+    </div>
+
+    <div class="meta-item">
+      <label>Lat / Long</label>
+      <p>
+        38.3579° N, 0.5137° W
+
+        <a
+          href="https://www.google.com/maps/@38.3473476,-0.5086511,12z"
+          target="_blank"
+          rel="noopener noreferrer">></a
+        >
+      </p>
+    </div>
+    <div class="meta-item">
+      <label>Current Status</label>
+      <p class="status-text">
+        <span class="status-dot"></span>OCCUPIED
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90vh;
+    overflow: hidden;
+    padding: var(--container-padding);
+    position: relative;
+
+    & .hero-blueprint {
+      @media (width < 1024px) {
+        display: none;
+      }
+
+      @media (width >= 1024px) {
+        display: block;
+      }
+
+      height: 100%;
+      opacity: 0.1;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: var(--space-5xl);
+      width: 50%;
+    }
+
+    & .hero-content {
+      & .tag-status {
+        background: var(--secondary-soft);
+        color: var(--secondary);
+        display: inline-block;
+        font-family: var(--font-label);
+        font-size: 0.75rem;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        margin-bottom: var(--space-xl);
+        padding: var(--space-2xs) var(--space-sm);
+        text-transform: uppercase;
+      }
+
+      & h1 {
+        font-size: clamp(3rem, 12vw, 10rem);
+        font-weight: var(--font-weight-black);
+        letter-spacing: -0.05em;
+        line-height: 0.8;
+        margin-bottom: var(--space-3xl);
+
+        & span {
+          color: var(--primary);
+        }
+      }
+
+      & .hero-desc {
+        border-left: 4px solid var(--primary);
+        color: var(--on-surface-variant);
+        font-size: 1.25rem;
+        margin-bottom: var(--space-5xl);
+        max-width: var(--content-width-lg);
+        padding-left: var(--space-lg);
+      }
+    }
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3xl);
+
+    & .meta-item {
+      & label {
+        color: var(--outline);
+        display: block;
+        font-family: var(--font-label);
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-normal);
+        letter-spacing: 0.15em;
+        margin-bottom: var(--space-2xs);
+        text-transform: uppercase;
+
+        &.status-text {
+          color: var(--secondary);
+        }
+
+        & .status-dot {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          background: var(--secondary);
+          border-radius: 50%;
+          display: inline-block;
+          height: var(--dot-size);
+          margin-right: var(--space-xs);
+          width: var(--dot-size);
+        }
+      }
+
+      p {
+        font-family: var(--font-label);
+        font-weight: var(--font-weight-normal);
+        line-height: 0.75rem;
+
+        a {
+          color: var(--primary);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+</style>

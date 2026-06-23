@@ -1,0 +1,67 @@
+---
+export interface SideProjectProps {
+  title: string;
+  url?: string;
+  imageUrl: string;
+  imageAlt: string;
+  meta: string;
+}
+
+const { title, url, imageUrl, imageAlt, meta } =
+  Astro.props as SideProjectProps;
+---
+
+<div class="side-project">
+  <div class="side-image">
+    <a {...url ? { href: url } : {}}><img alt={imageAlt} src={imageUrl} /></a>
+  </div>
+  <h4>{title}</h4>
+  <p class="meta">{meta}</p>
+</div>
+
+<style>
+  .side-project {
+    border-bottom: 1px solid rgb(var(--color-outline-rgb), 0.15);
+    padding-bottom: var(--space-3xl);
+
+    & .side-image {
+      aspect-ratio: 16/9;
+      background: var(--surface-container-highest);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-lg);
+      overflow: hidden;
+
+      & img {
+        filter: grayscale(1);
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.7s ease;
+        width: 100%;
+      }
+
+      &:hover img {
+        filter: grayscale(0);
+      }
+    }
+
+    & h4 {
+      font-family: var(--font-headline);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    & .meta {
+      color: var(--outline);
+      font-family: var(--font-label);
+      font-size: var(--font-size-xs);
+      letter-spacing: var(--letter-spacing-wide);
+      text-transform: uppercase;
+    }
+
+    &:hover h4 {
+      color: var(--primary);
+    }
+  }
+</style>
